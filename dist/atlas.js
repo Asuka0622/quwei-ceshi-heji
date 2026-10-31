@@ -16,9 +16,14 @@ function atlas(theme='history'){
   const met=boundaryTypes.filter(t=>seen[t[0]]).length;
   atlasShell(theme,`${atlasProgress(met,boundaryTypes.length,'的类型','做完测试，你的相处类型会在这里点亮。')}<div class="atlas-types">${boundaryTypes.map(t=>`<article class="atlas-type${seen[t[0]]?' met':''}"><em>${seen[t[0]]?'已测出':'尚未测出'}</em><h3>${t[0]}</h3><p>${t[1]}</p><p class="atlas-tip"><b>可以留意</b>${t[2]}</p></article>`).join('')}</div><div class="atlas-cta"><button class="primary" id="atlas-start">${met?'再测一次':'开始测试'} <span>→</span></button></div>`);
   app.querySelector('#atlas-start').onclick=boundaryChoose;
+ }else if(theme==='ancient'){
+  const met=ancientRoles.filter(r=>seen[r.role]).length;
+  atlasShell(theme,`${atlasProgress(met,ancientRoles.length,'的身份','做完测试，你的古代身份会在这里点亮。')}<div class="atlas-types">${ancientRoles.map(r=>`<article class="atlas-type${seen[r.role]?' met':''}"><em>${seen[r.role]?'已测出':'尚未测出'}</em><h3>${r.role}</h3><p>${r.text}</p><p class="atlas-tip"><b>关卡批语</b>${r.pass}</p></article>`).join('')}</div><div class="atlas-cta"><button class="primary" id="atlas-start">${met?'再测一次':'开始测试'} <span>→</span></button></div>`);
+  app.querySelector('#atlas-start').onclick=ancientBag;
  }else{
-  const [title,cover]=theme==='ancient'?['穿越古代，你会是什么身份？','assets/ancient-cover.webp']:['你身上藏着什么天赋？','assets/talent-cover.webp'];
-  atlasShell(theme,`<article class="atlas-soon"><img src="${cover}" alt="" loading="lazy" decoding="async"><div><span class="tag">筹备中</span><h3>${title}</h3><p>这个主题的测试还在准备中，上线后全部结果都会收录在这里。</p></div></article>`);
+  const met=talentTypes.filter(x=>seen[x.name]).length;
+  atlasShell(theme,`${atlasProgress(met,talentTypes.length,'的天赋','做完测试，你最想靠近的天赋会在这里点亮。')}<div class="atlas-types">${talentTypes.map(x=>`<article class="atlas-type${seen[x.name]?' met':''}"><em>${seen[x.name]?'已测出':'尚未测出'}</em><h3>${x.name}</h3><p>${x.text}</p><p class="atlas-tip"><b>同样偏爱的人物</b>${x.person}，${x.why}。</p></article>`).join('')}</div><div class="atlas-cta"><button class="primary" id="atlas-start">${met?'再测一次':'开始测试'} <span>→</span></button></div>`);
+  app.querySelector('#atlas-start').onclick=talentStart;
  }
 }
 function atlasPerson(i){

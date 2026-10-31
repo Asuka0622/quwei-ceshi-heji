@@ -29,7 +29,7 @@ body:before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;back
 html[data-scene=ink]{--scene-bg:url(assets/bg/ink.jpg)}
 html[data-scene=lantern]{--scene-bg:url(assets/bg/lantern.jpg)}
 html[data-scene=glow]{--scene-bg:url(assets/bg/glow.jpg)}
-body[data-view=quiz],body[data-view=length],body[data-view=boundary-quiz],body[data-view=boundary-length]{--scene-bg-opacity:.55}
+body[data-view=quiz],body[data-view=length],body[data-view=boundary-quiz],body[data-view=boundary-length],body[data-view=ancient-quiz],body[data-view=ancient-bag],body[data-view=talent-quiz]{--scene-bg-opacity:.55}
 #sky{position:fixed;inset:0 0 auto;width:100%;height:100%;height:100lvh;z-index:0;pointer-events:none;transition:opacity .6s}
 #app,footer{position:relative;z-index:1}
 body[data-view=quiz] #sky,body[data-view=length] #sky,body[data-view=boundary-quiz] #sky,body[data-view=boundary-length] #sky{opacity:.45}
@@ -528,6 +528,35 @@ section[id]{scroll-margin-top:60px}
  .ax{font-size:17px}
  .ax-sub{font-size:13px}
 }
+/* 穿越古代：行囊与文牒 */
+.bag-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0 8px}
+.bag-item{display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 8px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);color:var(--text);font-size:14px;letter-spacing:2px;transition:background .2s,border-color .2s,transform .2s var(--ease)}
+.bag-item i{font:500 32px/1 var(--serif);font-style:normal;color:var(--gold-ink)}
+.bag-item.selected{background:var(--mint);border-color:var(--green);color:var(--ink);transform:translateY(-2px)}
+.bag-item.selected i{color:var(--seal)}
+.pass{position:relative;margin:24px 0 12px;padding:40px 36px;background:var(--card);border:1px solid var(--line-2);border-radius:var(--r);box-shadow:inset 0 0 0 6px var(--card),inset 0 0 0 7px var(--gold-soft)}
+.pass h1{font-size:44px;letter-spacing:8px;margin:8px 0 14px}
+.pass p{color:var(--text);margin:0 0 20px}
+.pass .eyebrow{margin-bottom:22px}
+.pass dl{margin:0;border-top:1px solid var(--line)}
+.pass dt{margin-top:14px;font-size:12px;letter-spacing:2.5px;color:var(--gold-ink)}
+.pass dd{margin:2px 0 14px;color:var(--ink);line-height:1.7}
+.pass .seal{top:36px;bottom:auto;right:32px;transform:rotate(-6deg)}
+/* 天赋二选一 */
+.duel{display:flex;flex-direction:column;gap:10px;margin-top:28px}
+.duel em{align-self:center;font:italic 500 20px var(--serif);color:var(--gold)}
+.duel-card{min-height:124px;padding:24px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);font:500 19px/1.6 var(--serif);letter-spacing:1px;transition:background .2s,border-color .2s}
+.duel-card.selected{background:var(--mint);border-color:var(--green)}
+.talent-map{display:flex;justify-content:center;margin-bottom:16px}
+.talent-star{width:100%;max-width:360px;overflow:visible}
+.talent-star polygon,.talent-star line{fill:none;stroke:var(--line-2)}
+.talent-star .mine{fill:rgba(168,131,79,.28);stroke:var(--gold);stroke-width:1.5}
+.talent-star text{fill:var(--muted);font:12px var(--sans)}
+.talent-row{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line)}
+.talent-row:last-child{border-bottom:0;padding-bottom:0}
+.talent-row strong{font:500 17px var(--serif);letter-spacing:1px}
+.talent-row p{margin:4px 0 0;font-size:14px;color:var(--text)}
+@media(max-width:700px){.pass{padding:32px 24px}.pass h1{font-size:36px}.duel-card{min-height:104px;font-size:17px}}
 @media(prefers-reduced-motion:reduce){
  *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
  [data-reveal],.principles li{opacity:1!important;transform:none!important}
