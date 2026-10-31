@@ -1,24 +1,28 @@
 // 边界感主题是趣味自我观察，分数不是心理测量或健康判断。
 const boundaryQuestions=[
- {d:0,q:'朋友临时请你帮忙，但你今晚已经安排了自己的时间。你更可能？',a:['直接说明今晚不方便，再看能否另约时间','先看看能否腾出一点时间，再答复','担心对方失望，先答应下来','不太好意思当面拒绝，想晚点再回复'],v:[3,2,0,1]},
- {d:1,q:'朋友未经商量就使用你的东西，你心里有些介意。接下来你更可能？',a:['告诉对方希望下次使用前先问过你','先确认发生了什么，再说出自己的想法','觉得可能只是小事，先不提了','暂时收起东西，避免下次再发生'],v:[3,2,0,1]},
- {d:2,q:'讨论中有人问了一个你不想回答的私人问题。你会？',a:['轻轻换个话题','告诉对方这个问题想保留一点空间','先含糊回答，避免气氛尴尬','视关系决定回答多少，并说清不想聊的部分'],v:[1,3,0,2]},
- {d:0,q:'同事在下班后发来并不紧急的请求，你通常？',a:['立刻处理，担心让对方久等','先确认是否紧急，再决定何时回复','留到工作时间处理，并说明回复时间','看到后有些为难，可能拖一会儿再处理'],v:[0,2,3,1]},
- {d:1,q:'聚会时，大家一直拿你的一件糗事开玩笑，你有些不舒服。你会？',a:['先顺着气氛，找机会换个话题','告诉大家这个玩笑到这里就好','跟着笑一笑，不提自己的感受','聚会后找熟悉的人说说，希望下次别再提'],v:[1,3,0,2]},
- {d:2,q:'朋友希望你分享一件你还没准备好说的事，你会？',a:['说自己暂时不想谈，准备好再分享','挑选愿意说的部分，并保留其他内容','尽量满足对方的好奇，之后再消化感受','先转移话题，等以后合适时再说'],v:[3,2,0,1]},
- {d:0,q:'家人希望你周末参加活动，但你想休息。你会？',a:['解释自己需要休息，商量下次再参加','根据重要程度决定是否参加一部分','不想扫兴，先参加再说','想拒绝但不知怎么开口，暂时不作决定'],v:[3,2,0,1]},
- {d:1,q:'有人反复打断你说话，你会怎样？',a:['等对方说完，希望之后有机会补充','温和地说自己还没讲完','先缩短自己的表达，避免争执','找个合适时机说出自己的感受'],v:[1,3,0,2]},
- {d:2,q:'朋友想查看你手机里的私人照片，你会？',a:['挑选愿意分享的照片给对方看','不太愿意，但怕尴尬就让对方看','明确表示手机里的内容想自己保留','开玩笑带过，暂时不递手机'],v:[2,0,3,1]},
- {d:0,q:'你已经答应帮朋友办事，后来发现需要花费比预想多得多的时间。你会？',a:['说明实际能投入的时间，重新商量','看看能否调整安排，再和朋友讨论','既然已经答应，就尽量全部做完','先做着，等实在忙不过来再说'],v:[3,2,0,1]},
- {d:1,q:'朋友总向你倾诉同一件烦心事，而你今天也很疲惫。你更可能？',a:['先陪对方聊完，不提自己有些疲惫','说出自己现在需要休息，另约时间聊','先简短回应，等有精力时再说','告诉对方自己今天的状态，商量聊多久'],v:[0,3,1,2]},
- {d:2,q:'朋友在社交平台发了有你出镜的照片，但你不想公开。你会？',a:['请对方删除或更换照片','先问能否调整可见范围，再决定','虽然介意，还是让照片保留','暂时不提，之后尽量避开镜头'],v:[3,2,0,1]}
+ {d:0,q:'朋友临时请你帮忙，但你今晚已经安排了自己的时间。你更可能？',a:['说今晚有安排，另约时间','看看能否挪出一点时间','答应下来，今晚的安排可以改','晚点再回复，先想想怎么安排'],v:[3,2,0,1]},
+ {d:1,q:'朋友没打招呼就用了你的东西。接下来你更可能？',a:['跟对方说，下次用之前先问一声','先问问是怎么回事，再说自己的想法','朋友之间用一下没什么，不提了','把东西收好，不特意提这件事'],v:[3,2,0,1]},
+ {d:2,q:'讨论中有人问了一个你不想回答的私人问题。你会？',a:['换个话题聊别的','直接说这个问题我不太想聊','简单回答一下，让讨论继续','聊一部分，其余的不展开'],v:[1,3,0,2]},
+ {d:0,q:'同事在下班后发来并不紧急的请求，你通常？',a:['顺手处理掉，早点了结','先问一句急不急，再决定','留到上班时间处理，并告诉对方','看情况，晚些时候再处理'],v:[0,2,3,1]},
+ {d:1,q:'聚会时，大家一直拿你的一件糗事开玩笑。你会？',a:['顺着聊几句，再换个话题','笑着说这个话题到这里吧','跟着一起笑，当作聚会的乐子','事后跟熟悉的人说，下次别再提'],v:[1,3,0,2]},
+ {d:2,q:'朋友希望你分享一件你还没准备好说的事，你会？',a:['说等自己想好了再聊','先说愿意说的部分','聊开了，说出来也无妨','这次先聊点别的'],v:[3,2,0,1]},
+ {d:0,q:'家人希望你周末参加活动，而你本来想休息。你会？',a:['说明想休息，约下次再去','去一部分时间，再回来休息','去参加，和家人待着也是休息','先不定，到周末看状态'],v:[3,2,0,1]},
+ {d:1,q:'有人反复打断你说话，你会怎样？',a:['等对方说完，再接着讲','说一句“我先讲完”','把话说短一些，让讨论继续','找个时机说说被打断的事'],v:[1,3,0,2]},
+ {d:2,q:'朋友想查看你手机里的私人照片，你会？',a:['挑几张给对方看','递过去让对方看，也没什么','说手机里的照片想自己留着','开个玩笑带过去'],v:[2,0,3,1]},
+ {d:0,q:'你已经答应帮朋友办事，后来发现需要花费比预想多得多的时间。你会？',a:['说明实际能投入多少，重新商量','调整自己的安排，再和朋友讨论','答应了就做完','先做着，视情况再说'],v:[3,2,0,1]},
+ {d:1,q:'朋友总向你倾诉同一件烦心事，而你今天也有点累。你更可能？',a:['陪对方聊完，朋友需要时就在','说今天想休息，另约时间聊','先简单聊几句','说说自己的状态，商量聊多久'],v:[0,3,1,2]},
+ {d:2,q:'朋友发了有你出镜的照片，你本来没打算公开。你会？',a:['请对方换一张','问问能否只让部分人看到','既然发了，就留着吧','不特意提，下次留意镜头'],v:[3,2,0,1]}
 ];
 // 四种相处类型：[名称, 描述, 可以留意]，结果页和图鉴共用。
 const boundaryTypes=[['温柔坚定型','你在这些场景中比较倾向直接说出自己的需要，也愿意让对方知道你的安排。','你的清晰能让相处更有预期；遇到关系敏感的时刻，也可以先听听对方的需求，再决定自己能做到哪一步。'],['灵活协商型','你常根据事情的重要程度和彼此的关系调整回应，希望在自己的空间和对方的需要之间找到平衡。','灵活是你的优势；面对不想承担的请求时，记得先确认自己真正愿意做到哪里。'],['谨慎观察型','你在一些场景中会先照顾气氛或观察对方反应，再决定是否表达自己的感受。','给自己一点整理想法的时间，再从一件小事开始表达，会比勉强自己立刻说清楚更容易。'],['贴心照顾型','你的回答显示，你经常会先考虑对方的感受；有时自己的时间或意愿可能因此被暂时放在后面。','照顾别人是你的长处，也可以练习把自己的需要放进考虑范围，不必每次都立刻答应。']];
-let bq=[],bi=0,ba=[];
+let bq=[],bi=0,ba=[],bDirection='fwd',bProgress=0;
 function boundaryChoose(){show('boundary-length',`<div class="page"><button class="back" data-home>← 返回测试合集</button><div class="quiz-head"><div class="eyebrow">YOUR SPACE, YOUR PACE</div><h1>你的边界感是什么类型？</h1><p>从日常相处的小场景出发，看看你如何安排自己的时间、表达感受和保留私人空间。</p></div><div class="length-list">${[[6,'轻体验','约 2 分钟'],[9,'标准版','约 3 分钟'],[12,'深入版','约 4 分钟']].map(([n,t,time])=>`<button class="length-option" data-blen="${n}"><span class="lo-count">${n}<small>题</small></span><strong>${t}</strong><small>按自己的节奏探索</small><b>${time} →</b></button>`).join('')}</div><p class="disclaimer">这是趣味自我观察，题量增加不保证更准确，也不是心理诊断。</p></div>`);app.querySelectorAll('[data-blen]').forEach(x=>x.onclick=()=>boundaryStart(Number(x.dataset.blen)))}
-function boundaryStart(n){bq=boundaryQuestions.slice(0,n);bi=0;ba=Array(n).fill(null);boundaryQuiz()}
-function boundaryQuiz(){let q=bq[bi];show('boundary-quiz',`<div class="page"><button class="back" data-home>← 返回测试合集</button><div class="quiz-head compact"><div class="eyebrow">YOUR SPACE, YOUR PACE</div><h1>你的边界感是什么类型？</h1></div><div class="progress-meta"><span>选择最接近平时的做法</span><span>${bi+1} / ${bq.length}</span></div><div class="progress" role="progressbar" aria-label="答题进度" aria-valuemin="1" aria-valuemax="${bq.length}" aria-valuenow="${bi+1}"><span style="width:${100*(bi+1)/bq.length}%"></span></div><div class="question"><div class="eyebrow">QUESTION ${String(bi+1).padStart(2,'0')}</div><h2>${q.q}</h2><img class="question-illustration" src="question-art/boundary-${String(bi+1).padStart(2,'0')}.webp" alt="" decoding="async" width="1200" height="675" onerror="this.remove()"><div class="options">${q.a.map((x,i)=>`<button class="option${ba[bi]===i?' selected':''}" data-bopt="${i}" aria-pressed="${ba[bi]===i}"><span>${'ABCD'[i]}</span>${x}</button>`).join('')}</div></div><div class="quiz-actions"><button class="secondary" id="bprev" ${bi===0?'disabled':''}>← 上一题</button><button class="primary" id="bnext" ${ba[bi]===null?'disabled':''}>${bi===bq.length-1?'查看结果':'下一题'} →</button></div></div>`,false);app.querySelectorAll('[data-bopt]').forEach(x=>x.onclick=()=>{ba[bi]=Number(x.dataset.bopt);boundaryQuiz()});app.querySelector('#bprev').onclick=()=>{if(bi>0){bi--;boundaryQuiz()}};app.querySelector('#bnext').onclick=()=>{if(ba[bi]===null)return;if(bi+1<bq.length){bi++;boundaryQuiz()}else boundaryResult()}}
+function boundaryStart(n){bq=boundaryQuestions.slice(0,n);bi=0;bDirection='fwd';bProgress=0;ba=Array(n).fill(null);boundaryQuiz();window.scrollTo({top:0,behavior:'instant'})}
+function boundaryQuiz(){let q=bq[bi];show('boundary-quiz',`<div class="page"><button class="back" data-home>← 返回测试合集</button><div class="quiz-head compact"><div class="eyebrow">YOUR SPACE, YOUR PACE</div><h1>你的边界感是什么类型？</h1></div><div class="progress-meta"><span>选择最接近平时的做法</span><span>${bi+1} / ${bq.length}</span></div><div class="progress" role="progressbar" aria-label="答题进度" aria-valuemin="1" aria-valuemax="${bq.length}" aria-valuenow="${bi+1}"><span style="width:${bProgress}%"></span></div><div class="question ${bDirection}"><div class="eyebrow">QUESTION ${String(bi+1).padStart(2,'0')}</div><h2>${q.q}</h2><img class="question-illustration" src="question-art/boundary-${String(bi+1).padStart(2,'0')}.webp" alt="" decoding="async" width="1200" height="675" onerror="this.remove()"><div class="options">${q.a.map((x,i)=>`<button class="option${ba[bi]===i?' selected':''}" data-bopt="${i}" style="--i:${i}" aria-pressed="${ba[bi]===i}"><span>${'ABCD'[i]}</span>${x}</button>`).join('')}</div></div><div class="quiz-actions"><button class="secondary" id="bprev" ${bi===0?'disabled':''}>← 上一题</button><span class="key-hint">键盘 1–4 选择 · ← → 切换</span><button class="primary" id="bnext" ${ba[bi]===null?'disabled':''}>${bi===bq.length-1?'查看结果':'下一题'} →</button></div></div>`,false);app.querySelectorAll('[data-bopt]').forEach(x=>x.onclick=()=>boundaryPick(Number(x.dataset.bopt)));app.querySelector('#bprev').onclick=boundaryPrev;app.querySelector('#bnext').onclick=boundaryNext;const bar=app.querySelector('.progress span');bProgress=100*(bi+1)/bq.length;bar.offsetWidth;bar.style.width=bProgress+'%'}
+// 与主测试一致：就地更新选中状态，稍作停留后自动进入下一题；最后一题手动查看结果。
+function boundaryPick(i){ba[bi]=i;const opts=app.querySelectorAll('[data-bopt]');opts.forEach((o,j)=>{o.classList.toggle('selected',j===i);o.setAttribute('aria-pressed',j===i)});opts[i].classList.remove('pop');opts[i].offsetWidth;opts[i].classList.add('pop');app.querySelector('#bnext').disabled=false;clearTimeout(advanceTimer);if(bi<bq.length-1)advanceTimer=setTimeout(boundaryNext,320)}
+function boundaryPrev(){if(bi>0){bi--;bDirection='back';boundaryQuiz();app.querySelector('.question').scrollIntoView({block:'start',behavior:'instant'})}}
+function boundaryNext(){if(ba[bi]===null)return;if(bi+1<bq.length){bi++;bDirection='fwd';boundaryQuiz();app.querySelector('.question').scrollIntoView({block:'start',behavior:'instant'})}else boundaryResult()}
 function boundaryResult(){
  const values=[0,0,0],counts=[0,0,0];
  bq.forEach((q,i)=>{values[q.d]+=q.v[ba[i]];counts[q.d]++});

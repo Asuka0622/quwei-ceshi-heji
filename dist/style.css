@@ -29,8 +29,8 @@ body:before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;back
 html[data-scene=ink]{--scene-bg:url(assets/bg/ink.jpg)}
 html[data-scene=lantern]{--scene-bg:url(assets/bg/lantern.jpg)}
 html[data-scene=glow]{--scene-bg:url(assets/bg/glow.jpg)}
-body[data-view=quiz],body[data-view=length]{--scene-bg-opacity:.55}
-#sky{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;transition:opacity .6s}
+body[data-view=quiz],body[data-view=length],body[data-view=boundary-quiz],body[data-view=boundary-length]{--scene-bg-opacity:.55}
+#sky{position:fixed;inset:0 0 auto;width:100%;height:100%;height:100lvh;z-index:0;pointer-events:none;transition:opacity .6s}
 #app,footer{position:relative;z-index:1}
 body[data-view=quiz] #sky,body[data-view=length] #sky,body[data-view=boundary-quiz] #sky,body[data-view=boundary-length] #sky{opacity:.45}
 
@@ -196,7 +196,7 @@ section[id]{scroll-margin-top:60px}
 .option span{flex:none;width:26px;font:italic 500 22px/1 var(--display);color:var(--gold);transition:color .2s}
 .option.selected{background:var(--mint);color:var(--ink);box-shadow:inset 2px 0 0 var(--green)}
 .option.selected span{color:var(--green)}
-.option.pop span{animation:pop .4s var(--ease)}
+.option.pop>span:not(.tap-ripple){animation:pop .4s var(--ease)}
 .quiz-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:28px}
 .key-hint{font-size:12px;letter-spacing:1px;color:var(--faint)}
 
@@ -410,7 +410,7 @@ section[id]{scroll-margin-top:60px}
 .tap-fx{position:relative;overflow:hidden}
 .tap-ripple{position:absolute;border-radius:50%;background:rgba(168,131,79,.28);pointer-events:none;transform:scale(0);animation:tapRipple .55s ease-out forwards}
 .primary .tap-ripple{background:rgba(243,239,230,.3)}
-@keyframes tapRipple{to{transform:scale(1);opacity:0}}
+@keyframes tapRipple{from{transform:scale(0)}to{transform:scale(1);opacity:0}}
 .primary:active:not(:disabled),.secondary:active:not(:disabled),.option:active,.length-option:active,.chip:active,.atlas-card:active,.header-link:active{transform:scale(.97);transition:transform .08s}
 .hero-art{touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
 .sc-drag{transform-origin:240px 240px}

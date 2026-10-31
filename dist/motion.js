@@ -17,7 +17,7 @@ addEventListener('pointerdown',e=>{
 addEventListener('click',e=>{if(e.target.closest('.option')&&navigator.vibrate)navigator.vibrate(8)});
 
 // 星图：左右拖动转动并带惯性，轻点发光；上下滑动仍然是滚动页面（touch-action:pan-y）
-let drag=0,spin=0,startX=null,lastX=0,moved=0,tiltX=0,tiltY=0,curX=0,curY=0,raf=0,askedTilt=false;
+let drag=0,spin=0,startX=null,lastX=0,moved=0,tiltX=0,tiltY=0,curX=0,curY=0,raf=0,tiltDecided=false;
 const kick=()=>{if(!raf)raf=requestAnimationFrame(tick)};
 addEventListener('pointerdown',e=>{if(e.target.closest&&e.target.closest('.hero-art')){startX=lastX=e.clientX;moved=0;spin=0}},{passive:true});
 addEventListener('pointermove',e=>{if(startX===null)return;const dx=e.clientX-lastX;lastX=e.clientX;moved+=Math.abs(dx);drag+=dx*.45;spin=dx*.45;kick()},{passive:true});
@@ -26,11 +26,11 @@ const release=e=>{
  if(moved>=6||!e||e.type!=='pointerup')return;
  const chart=document.querySelector('.star-chart');if(chart){chart.classList.remove('sc-pulse');chart.getBoundingClientRect();chart.classList.add('sc-pulse')}
  if(navigator.vibrate)navigator.vibrate(10);
- // iOS 读取倾斜要用户授权，且必须由点按触发：只在用户主动点星图时才询问一次
- if(!askedTilt&&window.DeviceOrientationEvent&&DeviceOrientationEvent.requestPermission){askedTilt=true;DeviceOrientationEvent.requestPermission().catch(()=>{})}
 };
 addEventListener('pointerup',release,{passive:true});addEventListener('pointercancel',release,{passive:true});
 
+// iOS 读取倾斜要用户授权，且必须由点按触发：只在用户轻点星图时询问；得到明确答复后不再询问，请求失败下次可重试
+addEventListener('click',e=>{if(tiltDecided||moved>=6||!e.target.closest('.hero-art')||!window.DeviceOrientationEvent||!DeviceOrientationEvent.requestPermission)return;DeviceOrientationEvent.requestPermission().then(()=>{tiltDecided=true}).catch(()=>{})});
 // 倾斜手机时星图有立体晃动
 addEventListener('deviceorientation',e=>{if(e.gamma==null)return;tiltX=Math.max(-1,Math.min(1,e.gamma/30))*7;tiltY=Math.max(-1,Math.min(1,(e.beta-45)/30))*-7;kick()},{passive:true});
 addEventListener('scroll',kick,{passive:true});addEventListener('resize',kick,{passive:true});

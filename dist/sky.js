@@ -13,7 +13,7 @@ const SCENES={
  glow:{rgb:'140,126,186',density:40000,max:24,size:[22,56],speed:.2,shape:'orb',touch:'attract'},
 };
 const LINK=130,MAX_LINKS=7;
-let name='',S=SCENES.stars,W=0,H=0,parts=[],fx=[],petals=[],px=-999,py=-999,tx=0,ty=0,ox=0,oy=0,raf=0,lastPointer=0,lastFx=0,petalImg=null;
+let name='',S=SCENES.stars,W=0,H=0,parts=[],fx=[],petals=[],px=-999,py=-999,tx=0,ty=0,ox=0,oy=0,raf=0,lastDraw=0,lastPointer=0,lastFx=0,petalImg=null;
 const rand=(a,b)=>a+Math.random()*(b-a);
 
 function build(){
@@ -36,7 +36,8 @@ function drawPart(x,y,s,a,t){
 }
 
 function frame(t){
- raf=0;if(!Number.isFinite(ox+oy+tx+ty))ox=oy=tx=ty=0;
+ // 手动重绘时先取消排队中的一帧，避免绘制循环叠加
+ if(raf)cancelAnimationFrame(raf);raf=0;lastDraw=t;if(!Number.isFinite(ox+oy+tx+ty))ox=oy=tx=ty=0;
  ox+=(tx-ox)*.06;oy+=(ty-oy)*.06;
  ctx.clearRect(0,0,W,H);
  const sy=still?0:scrollY*.08,near=[],active=px>-900;
@@ -75,7 +76,9 @@ function frame(t){
  });
  if(!still)loop();
 }
-function loop(){if(!raf&&!document.hidden)raf=requestAnimationFrame(frame)}
+// 背景大多被内容遮住的页面限制到约 30fps；有触摸特效时恢复全帧，保证流畅。
+function step(t){raf=0;if(document.body.dataset.view!=='home'&&!fx.length&&t-lastDraw<30)loop();else frame(t)}
+function loop(){if(!raf&&!document.hidden)raf=requestAnimationFrame(step)}
 function touchFx(x,y,strong){
  const now=Date.now();if(!strong&&now-lastFx<(S.touch==='ripple'?140:220))return;lastFx=now;
  if(S.touch==='ripple'){fx.push({kind:'ring',x,y,r:strong?6:2,grow:strong?1.4:.8,life:1,decay:strong?.012:.025});if(strong)fx.push({kind:'ring',x,y,r:0,grow:.9,life:1,decay:.014})}
@@ -87,7 +90,10 @@ function aim(x,y){px=x;py=y;lastPointer=Date.now();if(W&&H){tx=(x/W-.5)*-24;ty=(
 const preview=new URLSearchParams(location.search).get('scene');
 setScene(preview||'stars');
 window.skyScene=setScene;
-let resizeTimer;addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{build();frame(performance.now())},200)});
+let resizeTimer;addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{
+ // 手机滚动时地址栏收放只改变高度，不重建，星星才不会跳动；画布高度用 100lvh 覆盖
+ if(innerWidth===W&&Math.abs(innerHeight-H)<160)return;
+ build();frame(performance.now())},200)});
 if(still)return;
 addEventListener('pointermove',e=>aim(e.clientX,e.clientY),{passive:true});
 addEventListener('touchmove',e=>{const p=e.touches[0];if(p)aim(p.clientX,p.clientY)},{passive:true});
