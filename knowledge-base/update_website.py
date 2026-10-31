@@ -8,7 +8,7 @@ DIMENSIONS=8
 
 root=Path(__file__).parent.parent
 people=json.loads((root/'knowledge-base/reviewed-people.json').read_text(encoding='utf-8'))
-assert len(people)==20 and len({p['name'] for p in people})==20
+assert len(people)==30 and len({p['name'] for p in people})==30
 assert all(len(p['v'])==DIMENSIONS and all(1<=x<=5 for x in p['v']) and p['url'].startswith('https://') for p in people)
 (root/'dist/people.js').write_text('const people = '+json.dumps(people,ensure_ascii=False,indent=2)+';\n',encoding='utf-8')
 html=root/'dist/index.html'

@@ -18,5 +18,15 @@
  {"name":"莎士比亚","title":"描绘人间的剧作家","v":[4,2,5,3,5,3,4,2],"fact":"他在英国戏剧界工作，并创作了戏剧和诗歌。","url":"https://www.folger.edu/explore/shakespeares-life/"},
  {"name":"简·奥斯汀","title":"观察日常的小说家","v":[3,2,2,4,3,4,2,3],"fact":"她是英国小说家，创作了《傲慢与偏见》等作品。","url":"https://janeaustensociety.org.uk/jane-austen/biography/"},
  {"name":"南丁格尔","title":"改善照护的行动者","v":[3,4,4,5,1,4,5,5],"fact":"她是护士和社会改革者，也使用统计图表展示公共卫生问题。","url":"https://www.kcl.ac.uk/people/florence-nightingale"},
- {"name":"梵高","title":"执着创作的画家","v":[5,1,1,2,5,5,2,4],"fact":"他是荷兰画家，留下大量绘画作品。","url":"https://www.vangoghmuseum.nl/en/art-and-stories/art/vincent-van-gogh"}
+ {"name":"梵高","title":"执着创作的画家","v":[5,1,1,2,5,5,2,4],"fact":"他是荷兰画家，留下大量绘画作品。","url":"https://www.vangoghmuseum.nl/en/art-and-stories/art/vincent-van-gogh"},
+ {"name":"武则天","title":"开创时代的女皇","v":[4,4,4,5,2,4,5,2],"fact":"她是唐高宗的皇后，后来称帝建立武周。","url":"https://www.britannica.com/biography/Wuhou"},
+ {"name":"曹操","title":"志在千里的谋略家","v":[4,4,4,4,4,2,5,2],"fact":"他是东汉末年的政治家、军事家和诗人。","url":"https://www.britannica.com/biography/Cao-Cao"},
+ {"name":"岳飞","title":"严于律己的将领","v":[2,2,3,5,2,4,5,5],"fact":"他是南宋抗金将领。","url":"https://www.edb.gov.hk/attachment/tc/curriculum-development/kla/chi-edu/recommended-passages/KS3_20.pdf"},
+ {"name":"陶渊明","title":"归隐田园的诗人","v":[2,2,1,1,4,4,1,5],"fact":"他是东晋诗人，辞官后归隐田园。","url":"https://www.britannica.com/biography/Tao-Qian"},
+ {"name":"庄子","title":"逍遥想象的思想家","v":[5,2,1,1,5,2,1,4],"fact":"他是战国时期的思想家。","url":"https://www.britannica.com/biography/Zhuangzi"},
+ {"name":"屈原","title":"上下求索的诗人","v":[2,2,1,2,5,4,4,5],"fact":"他是战国时期楚国诗人，著有《离骚》。","url":"https://www.britannica.com/biography/Qu-Yuan"},
+ {"name":"林徽因","title":"兼通建筑与诗的人","v":[5,4,4,4,5,2,4,4],"fact":"她是建筑学家和文学家。","url":"https://www.tsinghua.edu.cn/info/1182/111612.htm"},
+ {"name":"海伦·凯勒","title":"勇敢冒险的写作者","v":[5,2,4,4,4,4,4,5],"fact":"她幼年失明失聪，后来成为作家和社会活动家。","url":"https://quoteinvestigator.com/2014/11/21/adventure/"},
+ {"name":"贝多芬","title":"与命运较劲的作曲家","v":[4,2,1,2,5,5,5,5],"fact":"他是德国作曲家，在听力衰退后继续创作。","url":"https://www.classical-music.com/articles/10-best-beethoven-quotes/"},
+ {"name":"牛顿","title":"追问规律的科学家","v":[3,5,1,4,3,5,3,4],"fact":"他是英国物理学家和数学家。","url":"https://www.lindahall.org/about/news/scientist-of-the-day/isaac-newton-3/"}
 ]
