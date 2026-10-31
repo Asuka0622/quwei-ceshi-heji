@@ -15,7 +15,7 @@ const ancientScenes=[
  {q:'城门口，守卒拦下你盘问来路。你会？',a:['递上一杯酒，先聊两句','拿出账本，说明是来做生意的','摊开舆图，说清要走哪条路','报上师承，写一段文书给他看'],r:[7,1,5,2]},
  {q:'客栈半夜有人喊肚子疼。你会？',a:['下楼找掌柜，把人手安排开','起身看看，翻一翻药囊','先守住门口，免得有人趁乱','拨几下弦，让大家定定神'],r:[6,3,0,4]},
  {q:'路遇一座断桥，对岸也有人等着过河。你会？',a:['算算摆渡一趟能收几文','找些木料，动手修','绕路走，顺便看看上游','召集两岸的人，商量谁出钱出力'],r:[1,8,5,6]},
- {q:'旅途最后一晚，你想？',a:['开一坛酒，请同行的人都喝一杯','把这一路写下来','再练一遍路上学的曲子','修一修用旧了的工具'],r:[7,2,4,8]}
+ {q:'旅途最后一晚。你会？',a:['开一坛酒，请同行的人都喝一杯','把这一路写下来','再练一遍路上学的曲子','修一修用旧了的工具'],r:[7,2,4,8]}
 ];
 let aPicks=[],aAns=[],aIndex=0;
 function ancientBag(){aPicks=[];show('ancient-bag',`<div class="page"><button class="back" data-home>← 返回测试合集</button><div class="quiz-head"><div class="eyebrow">PACK YOUR BAG</div><h1>穿越古代，你会是什么身份？</h1><p>明天一早就要出发，行囊只装得下 3 件东西。凭第一感觉选吧。</p></div><div class="progress-meta"><span>轻点选择，再点一次放回去</span><span><b id="bag-count">0</b> / 3</span></div><div class="bag-grid">${ancientRoles.map((r,i)=>`<button class="bag-item" data-item="${i}" aria-pressed="false"><i>${r.item[0]}</i>${r.item}</button>`).join('')}</div><div class="quiz-actions"><span class="key-hint" id="bag-hint">还差 3 件</span><button class="primary" id="bag-next" disabled>收好出发 →</button></div><p class="disclaimer">纯属趣味想象，身份和文牒都是虚构的，不是历史考证或性格评估。</p></div>`);
