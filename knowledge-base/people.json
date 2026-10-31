@@ -1,0 +1,659 @@
+{
+  "version": "0.1",
+  "created": "2026-10-27",
+  "purpose": "历史人物匹配测试的候选知识库",
+  "status": "研究草稿，不直接上线",
+  "people": [
+    {
+      "id": "history-001",
+      "name": "苏轼",
+      "era_region": "中国·北宋",
+      "field": [
+        "文学",
+        "书画"
+      ],
+      "candidate_fact": "诗词、散文与书画作品",
+      "source_review_status": "初步核对",
+      "sources": [
+        {
+          "title": "人物生平资料",
+          "url": "https://www.dpm.org.cn/lemmas/242068.html",
+          "supports": "诗词、散文与书画作品"
+        }
+      ],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "初步核对不代表已取得商业内容或图片使用许可。"
+    },
+    {
+      "id": "history-002",
+      "name": "李白",
+      "era_region": "中国·唐",
+      "field": [
+        "诗歌"
+      ],
+      "candidate_fact": "留下大量诗歌，曾多次远游",
+      "source_review_status": "初步核对",
+      "sources": [
+        {
+          "title": "人物生平资料",
+          "url": "https://pedia.cloud.edu.tw/Entry/WikiContent?search=%E6%9D%8E%E7%99%BD&title=%E6%9D%8E%E7%99%BD",
+          "supports": "留下大量诗歌，曾多次远游"
+        }
+      ],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "初步核对不代表已取得商业内容或图片使用许可。"
+    },
+    {
+      "id": "history-003",
+      "name": "司马迁",
+      "era_region": "中国·西汉",
+      "field": [
+        "史学"
+      ],
+      "candidate_fact": "著有纪传体通史《史记》",
+      "source_review_status": "初步核对",
+      "sources": [
+        {
+          "title": "人物生平资料",
+          "url": "https://www.dpm.org.cn/lemmas/240631.html",
+          "supports": "著有纪传体通史《史记》"
+        }
+      ],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "初步核对不代表已取得商业内容或图片使用许可。"
+    },
+    {
+      "id": "history-004",
+      "name": "诸葛亮",
+      "era_region": "中国·三国",
+      "field": [
+        "政治",
+        "军事"
+      ],
+      "candidate_fact": "蜀汉政治人物，参与谋划和治理",
+      "source_review_status": "初步核对",
+      "sources": [
+        {
+          "title": "人物生平资料",
+          "url": "https://mainuat.chiculture.org.hk/sc/china-five-thousand-years/1905",
+          "supports": "蜀汉政治人物，参与谋划和治理"
+        }
+      ],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "初步核对不代表已取得商业内容或图片使用许可。"
+    },
+    {
+      "id": "history-005",
+      "name": "爱因斯坦",
+      "era_region": "德国、瑞士、美国·近现代",
+      "field": [
+        "物理"
+      ],
+      "candidate_fact": "以相对论等物理研究闻名",
+      "source_review_status": "初步核对",
+      "sources": [
+        {
+          "title": "人物生平资料",
+          "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/",
+          "supports": "以相对论等物理研究闻名"
+        }
+      ],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "初步核对不代表已取得商业内容或图片使用许可。"
+    },
+    {
+      "id": "history-006",
+      "name": "郑和",
+      "era_region": "中国·明",
+      "field": [
+        "航海",
+        "外交"
+      ],
+      "candidate_fact": "明代航海人物，曾率船队多次远航",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-007",
+      "name": "李清照",
+      "era_region": "中国·宋",
+      "field": [
+        "词",
+        "文学"
+      ],
+      "candidate_fact": "以词作闻名",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-008",
+      "name": "杜甫",
+      "era_region": "中国·唐",
+      "field": [
+        "诗歌"
+      ],
+      "candidate_fact": "唐代诗人",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-009",
+      "name": "白居易",
+      "era_region": "中国·唐",
+      "field": [
+        "诗歌"
+      ],
+      "candidate_fact": "唐代诗人",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-010",
+      "name": "王维",
+      "era_region": "中国·唐",
+      "field": [
+        "诗歌",
+        "绘画"
+      ],
+      "candidate_fact": "唐代诗人与画家",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-011",
+      "name": "辛弃疾",
+      "era_region": "中国·南宋",
+      "field": [
+        "词",
+        "军事"
+      ],
+      "candidate_fact": "南宋词人与官员",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-012",
+      "name": "陶渊明",
+      "era_region": "中国·东晋",
+      "field": [
+        "诗歌"
+      ],
+      "candidate_fact": "东晋诗人",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-013",
+      "name": "屈原",
+      "era_region": "中国·战国",
+      "field": [
+        "诗歌"
+      ],
+      "candidate_fact": "战国时期楚国诗人",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-014",
+      "name": "孔子",
+      "era_region": "中国·春秋",
+      "field": [
+        "思想",
+        "教育"
+      ],
+      "candidate_fact": "先秦思想家和教育家",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-015",
+      "name": "孟子",
+      "era_region": "中国·战国",
+      "field": [
+        "思想"
+      ],
+      "candidate_fact": "战国时期思想家",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-016",
+      "name": "庄子",
+      "era_region": "中国·战国",
+      "field": [
+        "思想",
+        "文学"
+      ],
+      "candidate_fact": "战国时期思想家",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-017",
+      "name": "秦始皇",
+      "era_region": "中国·秦",
+      "field": [
+        "政治"
+      ],
+      "candidate_fact": "秦朝皇帝",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-018",
+      "name": "汉武帝",
+      "era_region": "中国·西汉",
+      "field": [
+        "政治"
+      ],
+      "candidate_fact": "西汉皇帝",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-019",
+      "name": "武则天",
+      "era_region": "中国·唐、周",
+      "field": [
+        "政治"
+      ],
+      "candidate_fact": "武周皇帝",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-020",
+      "name": "曹操",
+      "era_region": "中国·东汉末年",
+      "field": [
+        "政治",
+        "军事",
+        "文学"
+      ],
+      "candidate_fact": "东汉末年政治人物与诗人",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-021",
+      "name": "岳飞",
+      "era_region": "中国·南宋",
+      "field": [
+        "军事"
+      ],
+      "candidate_fact": "南宋将领",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-022",
+      "name": "王阳明",
+      "era_region": "中国·明",
+      "field": [
+        "思想",
+        "政治"
+      ],
+      "candidate_fact": "明代思想家",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-023",
+      "name": "徐霞客",
+      "era_region": "中国·明",
+      "field": [
+        "旅行",
+        "地理"
+      ],
+      "candidate_fact": "以旅行与地理考察闻名",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-024",
+      "name": "李时珍",
+      "era_region": "中国·明",
+      "field": [
+        "医药",
+        "博物"
+      ],
+      "candidate_fact": "著有《本草纲目》",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-025",
+      "name": "曹雪芹",
+      "era_region": "中国·清",
+      "field": [
+        "文学"
+      ],
+      "candidate_fact": "小说《红楼梦》的作者",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-026",
+      "name": "华佗",
+      "era_region": "中国·东汉",
+      "field": [
+        "医药"
+      ],
+      "candidate_fact": "东汉时期的医者",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-027",
+      "name": "鲁迅",
+      "era_region": "中国·近现代",
+      "field": [
+        "文学"
+      ],
+      "candidate_fact": "中国现代作家",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-028",
+      "name": "林徽因",
+      "era_region": "中国·近现代",
+      "field": [
+        "建筑",
+        "文学"
+      ],
+      "candidate_fact": "建筑师与作家",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-029",
+      "name": "居里夫人",
+      "era_region": "波兰、法国·近现代",
+      "field": [
+        "物理",
+        "化学"
+      ],
+      "candidate_fact": "研究放射性并两次获得诺贝尔奖",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-030",
+      "name": "达·芬奇",
+      "era_region": "意大利·文艺复兴",
+      "field": [
+        "艺术",
+        "科学"
+      ],
+      "candidate_fact": "画家与研究者",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-031",
+      "name": "牛顿",
+      "era_region": "英国·近代",
+      "field": [
+        "物理",
+        "数学"
+      ],
+      "candidate_fact": "物理学家与数学家",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-032",
+      "name": "达尔文",
+      "era_region": "英国·近代",
+      "field": [
+        "自然科学"
+      ],
+      "candidate_fact": "提出以自然选择为核心的演化理论",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-033",
+      "name": "伽利略",
+      "era_region": "意大利·近代",
+      "field": [
+        "物理",
+        "天文"
+      ],
+      "candidate_fact": "从事天文观测和物理研究",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-034",
+      "name": "贝多芬",
+      "era_region": "德国、奥地利·近代",
+      "field": [
+        "音乐"
+      ],
+      "candidate_fact": "作曲家",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-035",
+      "name": "莫扎特",
+      "era_region": "奥地利·近代",
+      "field": [
+        "音乐"
+      ],
+      "candidate_fact": "作曲家",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-036",
+      "name": "梵高",
+      "era_region": "荷兰、法国·近代",
+      "field": [
+        "绘画"
+      ],
+      "candidate_fact": "画家",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-037",
+      "name": "莎士比亚",
+      "era_region": "英国·近代",
+      "field": [
+        "戏剧",
+        "文学"
+      ],
+      "candidate_fact": "剧作家与诗人",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-038",
+      "name": "简·奥斯汀",
+      "era_region": "英国·近代",
+      "field": [
+        "小说"
+      ],
+      "candidate_fact": "小说家",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-039",
+      "name": "南丁格尔",
+      "era_region": "英国·近代",
+      "field": [
+        "护理",
+        "公共卫生"
+      ],
+      "candidate_fact": "护理事业和公共卫生改革人物",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    },
+    {
+      "id": "history-040",
+      "name": "海伦·凯勒",
+      "era_region": "美国·近现代",
+      "field": [
+        "写作",
+        "社会倡议"
+      ],
+      "candidate_fact": "作家和社会活动家",
+      "source_review_status": "待查证",
+      "sources": [],
+      "personality_profile": null,
+      "profile_review_status": "待研究：不能从职业直接推断性格",
+      "matching_enabled": false,
+      "notes": "候选人物；生平事实、来源与呈现方式均待核对。"
+    }
+  ]
+}

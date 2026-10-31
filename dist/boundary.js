@@ -1,0 +1,34 @@
+// 边界感主题是趣味自我观察，分数不是心理测量或健康判断。
+const boundaryQuestions=[
+ {d:0,q:'朋友临时请你帮忙，但你今晚已经安排了自己的时间。你更可能？',a:['直接说明今晚不方便，再看能否另约时间','先看看能否腾出一点时间，再答复','担心对方失望，先答应下来','不太好意思当面拒绝，想晚点再回复'],v:[3,2,0,1]},
+ {d:1,q:'朋友未经商量就使用你的东西，你心里有些介意。接下来你更可能？',a:['告诉对方希望下次使用前先问过你','先确认发生了什么，再说出自己的想法','觉得可能只是小事，先不提了','暂时收起东西，避免下次再发生'],v:[3,2,0,1]},
+ {d:2,q:'讨论中有人问了一个你不想回答的私人问题。你会？',a:['轻轻换个话题','告诉对方这个问题想保留一点空间','先含糊回答，避免气氛尴尬','视关系决定回答多少，并说清不想聊的部分'],v:[1,3,0,2]},
+ {d:0,q:'同事在下班后发来并不紧急的请求，你通常？',a:['立刻处理，担心让对方久等','先确认是否紧急，再决定何时回复','留到工作时间处理，并说明回复时间','看到后有些为难，可能拖一会儿再处理'],v:[0,2,3,1]},
+ {d:1,q:'聚会时，大家一直拿你的一件糗事开玩笑，你有些不舒服。你会？',a:['先顺着气氛，找机会换个话题','告诉大家这个玩笑到这里就好','跟着笑一笑，不提自己的感受','聚会后找熟悉的人说说，希望下次别再提'],v:[1,3,0,2]},
+ {d:2,q:'朋友希望你分享一件你还没准备好说的事，你会？',a:['说自己暂时不想谈，准备好再分享','挑选愿意说的部分，并保留其他内容','尽量满足对方的好奇，之后再消化感受','先转移话题，等以后合适时再说'],v:[3,2,0,1]},
+ {d:0,q:'家人希望你周末参加活动，但你想休息。你会？',a:['解释自己需要休息，商量下次再参加','根据重要程度决定是否参加一部分','不想扫兴，先参加再说','想拒绝但不知怎么开口，暂时不作决定'],v:[3,2,0,1]},
+ {d:1,q:'有人反复打断你说话，你会怎样？',a:['等对方说完，希望之后有机会补充','温和地说自己还没讲完','先缩短自己的表达，避免争执','找个合适时机说出自己的感受'],v:[1,3,0,2]},
+ {d:2,q:'朋友想查看你手机里的私人照片，你会？',a:['挑选愿意分享的照片给对方看','不太愿意，但怕尴尬就让对方看','明确表示手机里的内容想自己保留','开玩笑带过，暂时不递手机'],v:[2,0,3,1]},
+ {d:0,q:'你已经答应帮朋友办事，后来发现需要花费比预想多得多的时间。你会？',a:['说明实际能投入的时间，重新商量','看看能否调整安排，再和朋友讨论','既然已经答应，就尽量全部做完','先做着，等实在忙不过来再说'],v:[3,2,0,1]},
+ {d:1,q:'朋友总向你倾诉同一件烦心事，而你今天也很疲惫。你更可能？',a:['先陪对方聊完，不提自己有些疲惫','说出自己现在需要休息，另约时间聊','先简短回应，等有精力时再说','告诉对方自己今天的状态，商量聊多久'],v:[0,3,1,2]},
+ {d:2,q:'朋友在社交平台发了有你出镜的照片，但你不想公开。你会？',a:['请对方删除或更换照片','先问能否调整可见范围，再决定','虽然介意，还是让照片保留','暂时不提，之后尽量避开镜头'],v:[3,2,0,1]}
+];
+let bq=[],bi=0,ba=[];
+function boundaryChoose(){show('boundary-length',`<div class="page"><button class="back" data-home>← 返回测试合集</button><div class="quiz-head"><div class="eyebrow">YOUR SPACE, YOUR PACE</div><h1>你的边界感是什么类型？</h1><p>从日常相处的小场景出发，看看你如何安排自己的时间、表达感受和保留私人空间。</p></div><div class="length-list">${[[6,'轻体验','约 2 分钟'],[9,'标准版','约 3 分钟'],[12,'深入版','约 4 分钟']].map(([n,t,time])=>`<button class="length-option" data-blen="${n}"><span class="lo-count">${n}<small>题</small></span><strong>${t}</strong><small>按自己的节奏探索</small><b>${time} →</b></button>`).join('')}</div><p class="disclaimer">这是趣味自我观察，题量增加不保证更准确，也不是心理诊断。</p></div>`);app.querySelectorAll('[data-blen]').forEach(x=>x.onclick=()=>boundaryStart(Number(x.dataset.blen)))}
+function boundaryStart(n){bq=boundaryQuestions.slice(0,n);bi=0;ba=Array(n).fill(null);boundaryQuiz()}
+function boundaryQuiz(){let q=bq[bi];show('boundary-quiz',`<div class="page"><button class="back" data-home>← 返回测试合集</button><div class="quiz-head compact"><div class="eyebrow">YOUR SPACE, YOUR PACE</div><h1>你的边界感是什么类型？</h1></div><div class="progress-meta"><span>选择最接近平时的做法</span><span>${bi+1} / ${bq.length}</span></div><div class="progress" role="progressbar" aria-label="答题进度" aria-valuemin="1" aria-valuemax="${bq.length}" aria-valuenow="${bi+1}"><span style="width:${100*(bi+1)/bq.length}%"></span></div><div class="question"><div class="eyebrow">QUESTION ${String(bi+1).padStart(2,'0')}</div><h2>${q.q}</h2><div class="options">${q.a.map((x,i)=>`<button class="option${ba[bi]===i?' selected':''}" data-bopt="${i}" aria-pressed="${ba[bi]===i}"><span>${'ABCD'[i]}</span>${x}</button>`).join('')}</div></div><div class="quiz-actions"><button class="secondary" id="bprev" ${bi===0?'disabled':''}>← 上一题</button><button class="primary" id="bnext" ${ba[bi]===null?'disabled':''}>${bi===bq.length-1?'查看结果':'下一题'} →</button></div></div>`,false);app.querySelectorAll('[data-bopt]').forEach(x=>x.onclick=()=>{ba[bi]=Number(x.dataset.bopt);boundaryQuiz()});app.querySelector('#bprev').onclick=()=>{if(bi>0){bi--;boundaryQuiz()}};app.querySelector('#bnext').onclick=()=>{if(ba[bi]===null)return;if(bi+1<bq.length){bi++;boundaryQuiz()}else boundaryResult()}}
+function boundaryResult(){
+ const values=[0,0,0],counts=[0,0,0];
+ bq.forEach((q,i)=>{values[q.d]+=q.v[ba[i]];counts[q.d]++});
+ const scores=values.map((x,i)=>x/counts[i]);
+ const mean=scores.reduce((a,b)=>a+b,0)/3;
+ const type=mean>=2.25?['温柔坚定型','你在这些场景中比较倾向直接说出自己的需要，也愿意让对方知道你的安排。','你的清晰能让相处更有预期；遇到关系敏感的时刻，也可以先听听对方的需求，再决定自己能做到哪一步。']:mean>=1.5?['灵活协商型','你常根据事情的重要程度和彼此的关系调整回应，希望在自己的空间和对方的需要之间找到平衡。','灵活是你的优势；面对不想承担的请求时，记得先确认自己真正愿意做到哪里。']:mean>=0.75?['谨慎观察型','你在一些场景中会先照顾气氛或观察对方反应，再决定是否表达自己的感受。','给自己一点整理想法的时间，再从一件小事开始表达，会比勉强自己立刻说清楚更容易。']:['贴心照顾型','你的回答显示，你经常会先考虑对方的感受；有时自己的时间或意愿可能因此被暂时放在后面。','照顾别人是你的长处，也可以练习把自己的需要放进考虑范围，不必每次都立刻答应。'];
+ const dimensions=[
+  {name:'时间与精力',high:'你比较愿意说明自己的安排，给休息和个人计划留空间。',mid:'你会根据事情的重要程度调整，有时也可能先顾及别人的期待。',low:'面对邀请或请求，你可能先考虑对方是否失望，自己的安排容易往后放。',tip:'我今晚已经有安排了，这次先不参加；我们可以另找时间。'},
+  {name:'感受与表达',high:'遇到不舒服的互动时，你较倾向把自己的感受或顾虑说出来。',mid:'你会看关系和场合选择表达方式，有时直接说，有时先观察。',low:'为了让气氛保持和谐，你有时会先忍住不舒服，或等待更合适的时机。',tip:'刚才那句话让我有点不舒服，我们能换个说法吗？'},
+  {name:'隐私与分享',high:'你比较清楚哪些内容愿意分享，也会为不想透露的部分留出空间。',mid:'你会依照亲疏和话题决定分享多少，有时选择先含糊带过。',low:'当别人追问私人信息时，你可能会为了避免尴尬而多分享一些。',tip:'这件事我现在想先保留，等准备好了再和你说。'}
+ ];
+ const weakest=scores.indexOf(Math.min(...scores));
+ const evidence=dimensions.map((dim,d)=>{const idx=bq.findIndex((q,i)=>q.d===d && q.v[ba[i]]===Math.min(...bq.filter(x=>x.d===d).map(x=>x.v[ba[bq.indexOf(x)]])));const q=bq[idx];return `<div class="dimension"><div class="dimension-row"><strong>${dim.name}</strong><span>${scores[d]>=2?'较常清晰表达':scores[d]>=1?'会视情境调整':'较常先顾及他人'}</span></div><p>${scores[d]>=2?dim.high:scores[d]>=1?dim.mid:dim.low}</p><p><small>你的回答：${q.q}「${q.a[ba[idx]]}」</small></p></div>`}).join('');
+ show('boundary-result',`<div class="page result"><button class="back" data-home>← 返回测试合集</button><div class="quiz-head"><div class="eyebrow">YOUR RESULT</div><h1>给自己，也留一点空间。</h1><p>根据你完成的 ${bq.length} 道题，看看本次作答呈现出的相处倾向。</p></div><section class="panel"><span class="kicker">你的边界相处风格</span><h2>${type[0]}</h2><p>${type[1]}</p><h3>你可以留意</h3><p>${type[2]}</p></section><section class="panel"><h3>三个生活侧面</h3><p>每个侧面选取一道你的回答作为例子；同一个人也可能在不同关系中有不同选择。</p>${evidence}</section><section class="panel"><span class="kicker">一个可以尝试的小步骤</span><h3>从「${dimensions[weakest].name}」开始</h3><p>这次你的回答在这个方面相对更倾向先顾及他人或观察情境。你可以根据实际关系和安全感，试着用自己的话说：</p><p>“${dimensions[weakest].tip}”</p><p><small>当几个方面相近时，默认展示第一个方面。你也可以选择自己最想练习的场景。</small></p></section><p class="disclaimer">这是一份趣味自我观察，结果仅反映本次回答，不是人格定论或心理诊断。题量增加不保证结果更准确；你的选择可能随关系和处境变化。</p><div class="result-actions"><button class="primary" id="bagain">再测一次 →</button><button class="secondary" data-home>返回合集</button></div></div>`);app.querySelector('#bagain').onclick=boundaryChoose
+}
