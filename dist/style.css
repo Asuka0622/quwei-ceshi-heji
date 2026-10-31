@@ -728,6 +728,48 @@ body:has(.deck){overflow:hidden}
 .box-actions .primary{flex:1.3;padding:14px;border-radius:0;font:600 15px var(--title);letter-spacing:.14em}
 .box-actions .secondary{flex:1;display:flex;align-items:center;justify-content:center;padding:14px;background:none;box-shadow:inset 0 0 0 1px rgba(28,42,36,.4);border-radius:0;color:var(--ink);font-size:14px}
 .box-sheet .notice{flex:none;margin:8px 0 0;min-height:0;font-size:12px;text-align:center;color:var(--seal)}
+/* ---------- 分享回顾：全屏卡片，一屏一件事，大字平涂 ---------- */
+.story{position:absolute;z-index:9;inset:0;overflow:hidden;background:var(--night);--title:'Xingjian Serif',var(--serif)}
+.story-stage,.s-card{position:absolute;inset:0}
+.story-bars{position:absolute;z-index:3;top:10px;left:12px;right:12px;display:flex;gap:4px}
+.story-bars i{flex:1;height:3px;overflow:hidden;background:rgba(255,255,255,.35)}
+.story-bars u{display:block;width:0;height:100%;background:#fff}
+@keyframes storyBar{from{width:0}to{width:100%}}
+.story-zone{position:absolute;z-index:2;top:0;bottom:0;padding:0;background:none;border:0}
+.story-prev{left:0;width:30%}
+.story-next{right:0;width:70%}
+.story-close{position:absolute;z-index:4;top:18px;right:8px;width:44px;height:44px;padding:0;background:none;border:0;color:#fff;font-size:26px;font-weight:300;mix-blend-mode:difference}
+.story-skip{position:absolute;z-index:4;left:50%;bottom:22px;min-height:44px;padding:0 20px;transform:translateX(-50%);background:rgba(18,18,14,.5);border:0;border-radius:22px;color:#fff;font-size:13px;letter-spacing:2px;white-space:nowrap}
+.s-card{display:flex;flex-direction:column;justify-content:center;padding:70px 30px 90px;color:#fff}
+.s-card>*,.s-photo-body>*{opacity:0;animation:storyIn .7s var(--ease) forwards;animation-delay:calc(var(--i,0)*.28s + .1s)}
+@keyframes storyIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.s-card img,.s-card>.avatar-xl{opacity:1;animation:none}
+.s-card small{display:block;font-size:15px;letter-spacing:.2em;opacity:.85}
+.s-card p{margin:14px 0 0;font-size:17px;line-height:1.8}
+.s-big{font:600 26px/1.5 var(--title)!important;letter-spacing:.06em}
+.s-huge{display:block;margin-top:6px;font:600 150px/1 var(--title);letter-spacing:-.02em}
+.s-night{background:#1b3027}
+.s-seal{background:var(--seal)}
+.s-word{display:block;margin-top:18px;font:600 62px/1.15 var(--title);letter-spacing:.08em}
+.s-seal small{margin-bottom:12px}
+.s-paper{align-items:center;background:#f6f1e4;color:var(--ink);text-align:center}
+.s-paper small{color:#6d716b}
+.s-vertical{margin:26px 0;writing-mode:vertical-rl;font:600 40px/1.7 var(--title);letter-spacing:.14em;text-align:left}
+.s-vertical span{display:block}
+.s-quote{margin:26px 0;font:600 25px/1.8 var(--title);letter-spacing:.06em}
+.s-photo{justify-content:flex-end;padding:0;background:#17110c}
+.s-photo>img,.s-person>.avatar-xl{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;border-radius:0}
+.s-person>.avatar-xl img{object-position:top}
+.s-photo:after{content:'';position:absolute;z-index:0;inset:0;background:linear-gradient(transparent 30%,rgba(18,18,14,.78) 62%,rgba(18,18,14,.95))}
+.s-person>.avatar-xl{z-index:0}
+.s-photo-body{position:relative;z-index:1;padding:0 28px 92px}
+.s-scene{margin:8px 0 22px!important;font-size:18px!important}
+.s-name{display:block;margin:8px 0 4px;font:600 66px/1.15 var(--title);letter-spacing:.1em}
+.s-person .s-big{font-size:19px!important}
+.s-person-row{display:flex;align-items:center;gap:18px;margin-top:26px}
+.s-person-row .avatar-md{width:84px;height:84px;box-shadow:none}
+.s-person-row b{display:block;font:600 28px var(--title);letter-spacing:.1em}
+.s-person-row small{letter-spacing:.1em;font-size:14px}
 @media(prefers-reduced-motion:reduce){
  *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
  [data-reveal],.principles li{opacity:1!important;transform:none!important}

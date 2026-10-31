@@ -22,12 +22,9 @@ async function drawLeaf(canvas,{near,ranked,far,user,quote,summary}){
  g.fillStyle=INK;g.font=`600 ${size}px ${SERIF}`;drawColumns(g,[near.name],196,122+size/2,size,0);
  const sealY=122+chars.length*size*1.12+22;
  g.fillStyle=SEAL;g.fillRect(156,sealY,80,80);g.fillStyle=PAPER;g.font=`600 32px ${SERIF}`;g.textAlign='center';g.textBaseline='middle';g.fillText('星',196,sealY+24);g.fillText('笺',196,sealY+58);
- // 星图：细墨线加一层朱色
- const cx=220,cy=1130,R=118,c=user.length,pt=(v,k)=>{const t=-Math.PI/2+k*2*Math.PI/c;return [cx+Math.cos(t)*R*v/5,cy+Math.sin(t)*R*v/5]},poly=vs=>{g.beginPath();vs.forEach((v,k)=>{const [x,y]=pt(v,k);k?g.lineTo(x,y):g.moveTo(x,y)});g.closePath()};
- g.strokeStyle='rgba(28,42,36,.28)';g.lineWidth=1.5;poly(Array(c).fill(5));g.stroke();user.forEach((v,k)=>{const [x,y]=pt(5,k);g.beginPath();g.moveTo(cx,cy);g.lineTo(x,y);g.stroke()});
- poly(user);g.fillStyle='rgba(164,65,44,.3)';g.fill();g.strokeStyle=SEAL;g.lineWidth=2.5;g.stroke();
- // 相近度
- g.fillStyle=SEAL;g.textAlign='center';g.textBaseline='alphabetic';g.font=`600 76px ${SERIF}`;g.fillText(near.score,cx-22,1356);g.font=`600 30px ${SERIF}`;g.fillText('%',cx+50,1356);g.fillStyle=MUTED;g.font=`400 26px ${SERIF}`;g.fillText('相 近',cx,1398);
+ // 关键词和相近度
+ const kw=keywords(user);g.fillStyle=MUTED;g.font=`400 26px ${SERIF}`;g.textAlign='left';g.textBaseline='middle';g.fillText('我的关键词',104,1006);g.fillStyle=SEAL;g.font=`600 54px ${SERIF}`;kw.forEach((w,k)=>g.fillText(w,104,1076+k*76));
+ g.fillStyle=INK;g.font=`600 60px ${SERIF}`;g.fillText(near.score+'%',104,1344);const sw=g.measureText(near.score+'%').width;g.fillStyle=MUTED;g.font=`400 26px ${SERIF}`;g.fillText('相近',104+sw+12,1354);
  // 题字：短句竖排，长句和事迹横排
  g.fillStyle=INK;const parts=quote.text.split(/(?<=[，。；！？])/).map(x=>x.replace(/[，。；！？]$/,'')).filter(Boolean);
  if(quote.kind!=='fact'&&parts.length<=3&&Math.max(...parts.map(x=>x.length))<=8){const qs=50,qg=30;g.font=`600 ${qs}px ${SERIF}`;drawColumns(g,parts,638+(parts.length-1)*(qs+qg)/2,1000,qs,qg)}
@@ -38,6 +35,26 @@ async function drawLeaf(canvas,{near,ranked,far,user,quote,summary}){
  g.fillStyle=INK;g.font=`400 26px ${SERIF}`;g.fillText(`也像 ${ranked[1].name}、${ranked[2].name}　　最不像 ${far.name}`,W/2,1490);
  g.fillStyle=MUTED;g.font=`400 22px ${SERIF}`;g.fillText('星笺 · 你与哪位历史人物最像？',W/2,1530);
 }
+// 回顾流程：像年度报告一样，一屏只讲一件事，一张张翻到最后的册页。点右边下一张，点左边上一张。
+function keywords(user){return user.map((v,i)=>({i,off:Math.abs(v-3),w:dimensions[i][v>=3?0:1].replace(/^偏向/,'')})).sort((a,b)=>b.off-a.off||a.i-b.i).slice(0,3).map(x=>x.w)}
+function storyCards(data){const {near,ranked,far,user,quote,nearText}=data,kw=keywords(user),total=questions.length;
+ // 选最能代表你的一次选择：最突出的那个维度里，分值离中间最远的一题
+ let pick=0,best=-1;questions.forEach((q,i)=>{const score=Math.abs(user[q.d]-3)*2+Math.abs(q.v[answers[i]]-3);if(score>best){best=score;pick=i}});
+ const q=questions[pick],scene=q.q.replace(/[^。？]*？$/,'').replace(/。$/,'')||q.q,art=`question-art/personality-${pad(q.d*4+Math.floor(pick/8)+1)}.webp`,parts=quote.text.split(/(?<=[，。；！？])/).map(x=>x.replace(/[，。；！？]$/,'')).filter(Boolean),vertical=quote.kind!=='fact'&&parts.length<=3&&Math.max(...parts.map(x=>x.length))<=9;
+ return [
+  `<div class="s-card s-night"><small style="--i:0">这一趟</small><b class="s-huge" style="--i:1">${total}</b><p class="s-big" style="--i:2">个历史现场</p><p style="--i:3">你做了 ${total} 次选择，<br>每一次都在悄悄说你是谁。</p></div>`,
+  `<div class="s-card s-photo"><img src="${art}" alt="" decoding="async"><div class="s-photo-body"><small style="--i:0">其中有这样一次</small><p class="s-scene" style="--i:1">${scene}</p><small style="--i:2">你选了</small><p class="s-big" style="--i:3">${q.a[answers[pick]]}</p></div></div>`,
+  `<div class="s-card s-seal"><small style="--i:0">你的关键词</small>${kw.map((w,i)=>`<b class="s-word" style="--i:${i+1}">${w}</b>`).join('')}</div>`,
+  `<div class="s-card s-photo s-person">${portrait(near,'avatar-xl')}<div class="s-photo-body"><small style="--i:0">穿越时空，最像你的是</small><b class="s-name" style="--i:1">${near.name}</b><p class="s-big" style="--i:2">${near.score}% 相近 · ${near.title}</p></div></div>`,
+  `<div class="s-card s-paper"><small style="--i:0">TA 留下过这样的话</small>${vertical?`<blockquote class="s-vertical" style="--i:1">${parts.map(x=>`<span>${x}</span>`).join('')}</blockquote>`:`<blockquote class="s-quote" style="--i:1">${quote.text}</blockquote>`}<small style="--i:2">${quote.src}</small><p style="--i:3">${nearText}</p></div>`,
+  `<div class="s-card s-night"><small style="--i:0">时空里，还有这些人</small>${[[ranked[1],'也像你'],[ranked[2],'也像你'],[far,'最不像你']].map(([p,label],i)=>`<div class="s-person-row" style="--i:${i+1}">${portrait(p,'avatar-md')}<div><b>${p.name}</b><small>${label}</small></div></div>`).join('')}</div>`
+ ]}
+function openStory(data){const deckEl=app.querySelector('.deck');deckEl.querySelector('.story')?.remove();deckEl.querySelector('.box-sheet')?.remove();const cards=storyCards(data);let at=0,timer=0;
+ deckEl.insertAdjacentHTML('beforeend',`<div class="story"><div class="story-bars">${cards.map(()=>'<i><u></u></i>').join('')}</div><div class="story-stage"></div><button class="story-zone story-prev" aria-label="上一张"></button><button class="story-zone story-next" aria-label="下一张"></button><button class="story-close" aria-label="关闭">×</button><button class="story-skip">看我的册页</button></div>`);
+ const el=deckEl.querySelector('.story'),stage=el.querySelector('.story-stage'),bars=[...el.querySelectorAll('.story-bars u')];
+ const end=()=>{clearTimeout(timer);el.remove()},finish=()=>{end();openShareCard(data)};
+ const go=i=>{clearTimeout(timer);if(i<0)i=0;if(i>=cards.length)return finish();at=i;stage.innerHTML=cards[i];stage.querySelectorAll('img[loading=lazy]').forEach(x=>x.loading='eager');bars.forEach((b,k)=>{b.style.animation='none';b.style.width=k<i?'100%':'0';if(k===i){b.offsetWidth;b.style.animation='storyBar 5s linear forwards'}});timer=setTimeout(()=>{if(el.isConnected)go(at+1)},5000)};
+ el.querySelector('.story-prev').onclick=()=>go(at-1);el.querySelector('.story-next').onclick=()=>go(at+1);el.querySelector('.story-close').onclick=end;el.querySelector('.story-skip').onclick=finish;go(0)}
 async function openShareCard(data){
  const deckEl=app.querySelector('.deck');let sheet=deckEl.querySelector('.box-sheet');if(sheet)sheet.remove();
  deckEl.insertAdjacentHTML('beforeend','<div class="box-sheet"><button class="box-close" aria-label="关闭">×</button><p class="box-wait">正在装裱你的册页…</p><img class="box-image" alt="我的册页：测试结果分享图" hidden><p class="box-tip" hidden>长按图片可以保存</p><div class="box-actions" hidden><button class="primary" id="box-send">发给朋友</button><a class="secondary" id="box-save" download="星笺-我的册页.png">保存图片</a></div><p class="notice" id="box-notice" aria-live="polite"></p></div>');
