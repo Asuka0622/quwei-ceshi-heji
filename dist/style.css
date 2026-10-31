@@ -406,6 +406,34 @@ section[id]{scroll-margin-top:60px}
 .atlas-person .fact{margin:18px 0}
 .atlas-person .panel{margin:18px 0}
 
+/* ---------- 手机动效：点按、星图、进入画面时触发 ---------- */
+.tap-fx{position:relative;overflow:hidden}
+.tap-ripple{position:absolute;border-radius:50%;background:rgba(168,131,79,.28);pointer-events:none;transform:scale(0);animation:tapRipple .55s ease-out forwards}
+.primary .tap-ripple{background:rgba(243,239,230,.3)}
+@keyframes tapRipple{to{transform:scale(1);opacity:0}}
+.primary:active:not(:disabled),.secondary:active:not(:disabled),.option:active,.length-option:active,.chip:active,.atlas-card:active,.header-link:active{transform:scale(.97);transition:transform .08s}
+.hero-art{touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+.sc-drag{transform-origin:240px 240px}
+.star-chart{will-change:transform;transition:filter .3s}
+.star-chart.sc-pulse{animation:scPulse .9s var(--ease)}
+@keyframes scPulse{30%{filter:brightness(1.5) drop-shadow(0 0 14px rgba(201,169,110,.8))}}
+.art-hint{display:none;margin-top:4px;font-size:11px;letter-spacing:2px;color:rgba(201,169,110,.85)}
+@media(hover:none){.art-hint{display:block}.art-caption{bottom:24px}}
+/* 卡片滚动到画面时自动播放，手机上不用悬停也能看到 */
+.feature.in .stamp{animation:stampIn .7s var(--ease) .35s both}
+.feature.in .avatar-row .avatar{animation:popIn .55s var(--ease) both}
+.feature.in .avatar-row .avatar:nth-child(2){animation-delay:.08s}
+.feature.in .avatar-row .avatar:nth-child(3){animation-delay:.16s}
+.feature.in .avatar-row .avatar:nth-child(4){animation-delay:.24s}
+.feature.in .avatar-row .avatar:nth-child(5){animation-delay:.32s}
+.feature.in .avatar-row .avatar:nth-child(6){animation-delay:.4s}
+.match.in .seal,.invite-card.in .seal{animation:stampIn .6s cubic-bezier(.3,1.4,.5,1) .55s both}
+.atlas-card{animation:optIn .5s var(--ease) both}
+.atlas-card:nth-child(2n){animation-delay:.06s}
+.atlas-card:nth-child(3n){animation-delay:.12s}
+@keyframes stampIn{from{opacity:0;transform:scale(1.8) rotate(-22deg)}}
+@keyframes popIn{from{opacity:0;transform:translateY(12px) scale(.7)}}
+
 /* ---------- 响应式 ---------- */
 @media(max-width:960px){
  .hero{grid-template-columns:1fr;gap:48px;padding-top:44px}
@@ -432,7 +460,7 @@ section[id]{scroll-margin-top:60px}
  .hero-stats li{padding:0 20px}
  .hero-stats b{font-size:36px}
  .art-index{left:26px;top:26px}
- .star-chart{inset:13% 12% 14%;width:76%;height:73%}
+ .star-chart{inset:10% 15% auto;width:70%;height:67%}
  .art-no{right:26px;top:22px}
  .art-caption{font-size:11px;letter-spacing:2px;bottom:22px}
  .section{padding:72px 0}
