@@ -80,15 +80,18 @@ function bindRadar(){const box=app.querySelector('.radar-box'),tip=box.querySele
 // 默契邀请：链接里只带好友的各维得分（×10）和题量，形如 #duo=42.18.35.27.40.22.31.45-24，不需要服务器。
 let friend=null;
 function readInvite(){const m=location.hash.match(/^#duo=([\d.]+)-(\d+)$/);if(!m)return false;const v=m[1].split('.').map(n=>+n/10),len=+m[2];if(v.length!==dimensions.length||v.some(x=>!(x>=1&&x<=5))||![16,24,32].includes(len))return false;friend={name:'好友',v,len};history.replaceState(null,'',location.pathname+location.search);return true}
-function invite(){const near=people.map((p,order)=>({...p,order,distance:p.v.reduce((s,n,i)=>s+(n-friend.v[i])**2,0)})).sort((a,b)=>a.distance-b.distance)[0];show('invite',`<div class="page invite"><div class="invite-card" data-reveal><span class="seal" aria-hidden="true">星笺</span><div class="eyebrow">AN INVITATION ACROSS TIME</div><h1>一位好友邀请你测默契</h1><p>TA 已经走完了 ${friend.len} 个历史现场。你也来作答，看看你们的星图有几分相似。</p><div class="invite-teaser">${portrait(near,'avatar-md')}<div><small>TA 的画像最接近</small><b>${near.name}</b></div></div><div class="invite-actions"><button class="primary" id="accept">开始作答 · ${friend.len} 题 <span>→</span></button><button class="back" data-home>先逛逛星笺</button></div></div></div>`);app.querySelector('#accept').onclick=()=>start(friend.len)}
+function invite(){const target=matchPoint(friend.v),near=people.map((p,order)=>({...p,order,distance:p.v.reduce((s,n,i)=>s+(n-target[i])**2,0)})).sort((a,b)=>a.distance-b.distance)[0];show('invite',`<div class="page invite"><div class="invite-card" data-reveal><span class="seal" aria-hidden="true">星笺</span><div class="eyebrow">AN INVITATION ACROSS TIME</div><h1>一位好友邀请你测默契</h1><p>TA 已经走完了 ${friend.len} 个历史现场。你也来作答，看看你们的星图有几分相似。</p><div class="invite-teaser">${portrait(near,'avatar-md')}<div><small>TA 的画像最接近</small><b>${near.name}</b></div></div><div class="invite-actions"><button class="primary" id="accept">开始作答 · ${friend.len} 题 <span>→</span></button><button class="back" data-home>先逛逛星笺</button></div></div></div>`);app.querySelector('#accept').onclick=()=>start(friend.len)}
 // 复制文本：优先用剪贴板接口；在非 https 页面或微信等内置浏览器里接口不可用时，退回选中文本框复制。
 async function copyText(t){if(navigator.clipboard&&isSecureContext){await navigator.clipboard.writeText(t);return}const box=document.createElement('textarea');box.value=t;box.setAttribute('readonly','');box.style.cssText='position:fixed;top:0;left:0;opacity:0';document.body.appendChild(box);box.select();box.setSelectionRange(0,t.length);const done=document.execCommand('copy');box.remove();if(!done)throw new Error('copy failed')}
 function shareLink(data,ok){return async()=>{const notice=app.querySelector('#notice');try{if(navigator.share)await navigator.share(data);else{await copyText(data.text+' '+data.url);notice.textContent=ok}}catch(e){if(e.name!=='AbortError')notice.textContent='可以复制这个链接发给朋友：'+data.url}}}
+// 多道题一平均，分数容易挤在中间 3 分，结果会总落在画像居中的几位人物上。匹配前把分数向两端拉开，倾向的方向不变。
+function matchPoint(u){return u.map(x=>Math.max(1,Math.min(5,3+(x-3)*2)))}
 function result(){
  const totals=Array(dimensions.length).fill(0); questions.forEach((q,i)=>{totals[q.d]+=(q.v||[5,4,2,1])[answers[i]]});
  const user=totals.map(x=>x/(questions.length/dimensions.length));
  // 相近度：每个维度都差 4 分时距离最大（√(16×维度数)），按欧氏距离折算成百分比。
- const ranked=people.map((p,order)=>({...p,order,distance:p.v.reduce((sum,n,i)=>sum+(n-user[i])**2,0)})).sort((a,b)=>a.distance-b.distance||a.order-b.order).map(p=>({...p,score:Math.round(100*(1-Math.sqrt(p.distance/(16*dimensions.length))))}));
+ const target=matchPoint(user);
+ const ranked=people.map((p,order)=>({...p,order,distance:p.v.reduce((sum,n,i)=>sum+(n-target[i])**2,0)})).sort((a,b)=>a.distance-b.distance||a.order-b.order).map(p=>({...p,score:Math.round(100*(1-Math.sqrt(p.distance/(16*dimensions.length))))}));
  const near=ranked[0], far=ranked[ranked.length-1];
  const lean=(i,value)=>{const off=value-3,side=(off>0?dimensions[i][0]:dimensions[i][1]).replace(/^偏向/,'');return Math.abs(off)<.5?'两边比较平衡':(Math.abs(off)<1.25?'略偏':'明显偏向')+side};
  // 用答案里最突出的两项写成一句话；和人物比较时，只说双方确实在同一侧或相反两侧的项。
