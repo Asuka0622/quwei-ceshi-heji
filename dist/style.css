@@ -770,6 +770,22 @@ body:has(.deck){overflow:hidden}
 .s-person-row .avatar-md{width:84px;height:84px;box-shadow:none}
 .s-person-row b{display:block;font:600 28px var(--title);letter-spacing:.1em}
 .s-person-row small{letter-spacing:.1em;font-size:14px}
+/* ---------- 你与 TA：选择和经历 ---------- */
+.life-list{margin:14px 0 0;padding:0 0 0 18px;list-style:none;border-left:1px solid rgba(28,42,36,.28)}
+.life-list li{position:relative;margin:0 0 16px;font-size:15px;line-height:1.9}
+.life-list li:before{content:'';position:absolute;left:-23px;top:.72em;width:9px;height:9px;background:var(--seal);transform:rotate(45deg)}
+.life-list li:last-child{margin-bottom:0}
+.echo-lead{margin:0 0 6px;text-align:center}
+.echo{padding:20px 0;border-top:1px solid rgba(28,42,36,.28)}
+.echo>small{display:block;margin-bottom:12px;font-size:13px;line-height:1.7;color:#6d716b}
+.echo p{margin:0}
+.echo p b{display:block;font:600 13px var(--title,var(--serif));letter-spacing:.14em}
+.echo-you{font:600 18px/1.65 var(--title,var(--serif));color:var(--ink)}
+.echo-you b{margin-bottom:2px;color:var(--seal)}
+.echo-ta{margin-top:14px!important;padding-left:14px;border-left:2px solid var(--seal);font-size:15px;line-height:1.85;color:#3a403b}
+.echo-ta b{margin-bottom:2px;color:var(--ink)}
+.echo em{display:block;margin-top:12px;font-style:normal;font-size:13px;color:var(--seal)}
+.echo:last-child{padding-bottom:6px}
 @media(prefers-reduced-motion:reduce){
  *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
  [data-reveal],.principles li{opacity:1!important;transform:none!important}
