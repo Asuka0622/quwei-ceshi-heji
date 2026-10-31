@@ -48,8 +48,8 @@ function countUp(el){const to=+el.dataset.count,t0=performance.now(),dur=900;if(
 // 用滚动事件和位置判断而不是 IntersectionObserver，保证后台标签页、截图等场景下内容也一定会出现。
 let revealCheck=null;
 function reveal(){removeEventListener('scroll',revealCheck);const pending=[...app.querySelectorAll('[data-reveal]')];if(reduceMotion())return pending.forEach(el=>el.classList.add('in'));const check=()=>{for(let i=pending.length-1;i>=0;i--){const el=pending[i],r=el.getBoundingClientRect();if(r.top<innerHeight*.92&&r.bottom>0){el.classList.add('in');el.querySelectorAll('[data-count]').forEach(countUp);pending.splice(i,1)}}if(!pending.length)removeEventListener('scroll',check)};revealCheck=check;addEventListener('scroll',check,{passive:true});setTimeout(check,30)}
-// 每张立绘里脸的位置（横、纵占比），小头像以此为中心裁切；顺序同 portraits 编号，20–29 是占位图。
-const faces=[[.43,.18],[.43,.22],[.4,.18],[.45,.17],[.45,.18],[.4,.18],[.45,.18],[.4,.18],[.4,.2],[.45,.18],[.42,.2],[.45,.24],[.45,.25],[.4,.21],[.47,.28],[.5,.24],[.45,.25],[.5,.23],[.4,.24],[.55,.24],...Array(10).fill([.5,.36])];
+// 每张立绘里脸的位置（横、纵占比），小头像以此为中心裁切；顺序同 portraits 编号，20–39 是占位图。
+const faces=[[.43,.18],[.43,.22],[.4,.18],[.45,.17],[.45,.18],[.4,.18],[.45,.18],[.4,.18],[.4,.2],[.45,.18],[.42,.2],[.45,.24],[.45,.25],[.4,.21],[.47,.28],[.5,.24],[.45,.25],[.5,.23],[.4,.24],[.55,.24],...Array(20).fill([.5,.36])];
 function portrait(p,cls){const [fx,fy]=faces[p.order]||[.5,.2];return `<span class="avatar ${cls}" style="--tone:${tones[p.order%tones.length]};--fx:${fx};--fy:${fy}"><b aria-hidden="true">${p.name[0]}</b><img src="portraits/${pad(p.order)}.webp" alt="${p.name}的人物插画" loading="lazy" onerror="this.remove()"></span>`}
 function show(name,html,toTop=true){view=name;document.body.dataset.view=name;if(window.skyScene&&!new URLSearchParams(location.search).get('scene'))skyScene(name.startsWith('ancient')?'lantern':name.startsWith('talent')?'glow':'stars');clearTimeout(advanceTimer);clearInterval(cycleTimer);app.innerHTML=`<div class="view">${html}</div>`;reveal();app.querySelectorAll('[data-home]').forEach(b=>b.onclick=home);if(toTop)window.scrollTo({top:0,behavior:'instant'})}
 // 首页主视觉「星图」：外圈缓缓旋转的是人物名字，中间的星座有几个角就对应几个性格维度。

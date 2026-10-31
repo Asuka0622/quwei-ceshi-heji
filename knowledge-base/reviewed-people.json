@@ -28,5 +28,15 @@
  {"name":"林徽因","title":"兼通建筑与诗的人","v":[5,4,4,4,5,2,4,4],"fact":"她是建筑学家和文学家。","url":"https://www.tsinghua.edu.cn/info/1182/111612.htm"},
  {"name":"海伦·凯勒","title":"勇敢冒险的写作者","v":[5,2,4,4,4,4,4,5],"fact":"她幼年失明失聪，后来成为作家和社会活动家。","url":"https://quoteinvestigator.com/2014/11/21/adventure/"},
  {"name":"贝多芬","title":"与命运较劲的作曲家","v":[4,2,1,2,5,5,5,5],"fact":"他是德国作曲家，在听力衰退后继续创作。","url":"https://www.classical-music.com/articles/10-best-beethoven-quotes/"},
- {"name":"牛顿","title":"追问规律的科学家","v":[3,5,1,4,3,5,3,4],"fact":"他是英国物理学家和数学家。","url":"https://www.lindahall.org/about/news/scientist-of-the-day/isaac-newton-3/"}
+ {"name":"牛顿","title":"追问规律的科学家","v":[3,5,1,4,3,5,3,4],"fact":"他是英国物理学家和数学家。","url":"https://www.lindahall.org/about/news/scientist-of-the-day/isaac-newton-3/"},
+ {"name":"范蠡","title":"功成转身的商人","v":[4,4,4,3,2,1,3,1],"fact":"他辅佐越王灭吴后离开，转而经商致富。","url":"https://en.wikipedia.org/wiki/Fan_Li"},
+ {"name":"张良","title":"功成身退的谋士","v":[3,5,2,4,2,2,1,2],"fact":"他辅佐刘邦建立汉朝，后来淡出权力中心。","url":"https://en.wikipedia.org/wiki/Zhang_Liang_(Western_Han)"},
+ {"name":"王维","title":"山水间的诗人","v":[2,2,1,3,4,2,1,3],"fact":"他是唐代诗人和画家，晚年常居辋川别业。","url":"https://en.wikipedia.org/wiki/Wang_Wei_(Tang_dynasty)"},
+ {"name":"王阳明","title":"知行合一的思想家","v":[4,5,4,3,3,4,4,5],"fact":"他提出“知行合一”，也曾领兵平定叛乱。","url":"https://en.wikipedia.org/wiki/Wang_Yangming"},
+ {"name":"唐伯虎","title":"放达不羁的才子","v":[4,2,4,2,5,2,1,2],"fact":"他是明代书画家和诗人，自号“桃花庵主”。","url":"https://en.wikipedia.org/wiki/Tang_Yin"},
+ {"name":"刘邦","title":"善用人才的开国皇帝","v":[4,2,5,1,2,1,5,1],"fact":"他出身平民，建立了汉朝。","url":"https://en.wikipedia.org/wiki/Liu_Bang"},
+ {"name":"苏格拉底","title":"街头追问的哲人","v":[4,5,5,1,3,4,1,5],"fact":"他在雅典与人对话诘问，自己没有留下著作。","url":"https://en.wikipedia.org/wiki/Socrates"},
+ {"name":"富兰克林","title":"样样都试的实干家","v":[4,4,5,4,3,1,4,2],"fact":"他是印刷商、作家、科学家，也是美国开国元勋。","url":"https://en.wikipedia.org/wiki/Benjamin_Franklin"},
+ {"name":"上官婉儿","title":"掌管诏命的才女","v":[3,4,4,4,3,3,5,1],"fact":"她在武则天和唐中宗时期掌管诏命。","url":"https://en.wikipedia.org/wiki/Shangguan_Wan%27er"},
+ {"name":"杨贵妃","title":"通晓音律的贵妃","v":[3,1,5,2,4,3,2,2],"fact":"她善歌舞、通音律，是唐玄宗的贵妃。","url":"https://en.wikipedia.org/wiki/Yang_Guifei"}
 ]
