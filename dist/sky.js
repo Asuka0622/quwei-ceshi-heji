@@ -76,8 +76,8 @@ function frame(t){
  });
  if(!still)loop();
 }
-// 背景大多被内容遮住的页面限制到约 30fps；有触摸特效时恢复全帧，保证流畅。
-function step(t){raf=0;if(document.body.dataset.view!=='home'&&!fx.length&&t-lastDraw<30)loop();else frame(t)}
+// 背景大多被内容遮住，限制到约 30fps；有触摸特效时恢复全帧，保证流畅。
+function step(t){raf=0;if(!fx.length&&t-lastDraw<30)loop();else frame(t)}
 function loop(){if(!raf&&!document.hidden)raf=requestAnimationFrame(step)}
 function touchFx(x,y,strong){
  const now=Date.now();if(!strong&&now-lastFx<(S.touch==='ripple'?140:220))return;lastFx=now;
