@@ -8,6 +8,8 @@ const people = [
       4,
       2,
       4,
+      2,
+      3,
       2
     ],
     "fact": "他的诗文、书法和绘画作品均有传世。",
@@ -22,6 +24,8 @@ const people = [
       5,
       1,
       5,
+      2,
+      3,
       2
     ],
     "fact": "他曾出蜀远游，并留下大量诗歌作品。",
@@ -36,6 +40,8 @@ const people = [
       2,
       4,
       3,
+      4,
+      4,
       4
     ],
     "fact": "他的诗歌记录了战争、动荡和百姓生活。",
@@ -50,6 +56,8 @@ const people = [
       2,
       3,
       4,
+      4,
+      3,
       4
     ],
     "fact": "她是宋代词人，作品涉及个人生活与时代经历。",
@@ -64,6 +72,8 @@ const people = [
       2,
       5,
       2,
+      5,
+      5,
       5
     ],
     "fact": "他撰写了纪传体通史《史记》。",
@@ -78,7 +88,9 @@ const people = [
       3,
       5,
       2,
-      3
+      3,
+      5,
+      5
     ],
     "fact": "他是蜀汉政治人物，参与治理与军事决策。",
     "url": "https://mainuat.chiculture.org.hk/sc/china-five-thousand-years/1905"
@@ -92,7 +104,9 @@ const people = [
       4,
       5,
       2,
-      4
+      4,
+      4,
+      5
     ],
     "fact": "他被后世视为思想家与教育者。",
     "url": "https://plato.stanford.edu/entries/confucius/"
@@ -106,6 +120,8 @@ const people = [
       4,
       4,
       2,
+      3,
+      5,
       3
     ],
     "fact": "他曾率船队远航，行经印度洋等地区。",
@@ -120,7 +136,9 @@ const people = [
       1,
       2,
       3,
-      5
+      5,
+      2,
+      4
     ],
     "fact": "他以旅行考察和记录见闻闻名。",
     "url": "https://uw.manifoldapp.org/read/6e5a06f1-95fb-43b4-8666-172a494e9d50/section/9a847070-0499-43b9-982b-e65da3a65139"
@@ -134,7 +152,9 @@ const people = [
       2,
       5,
       1,
-      5
+      5,
+      4,
+      4
     ],
     "fact": "他是明代医药学家，著有《本草纲目》。",
     "url": "https://hbszyy.cn/html/about/about-70.html"
@@ -148,7 +168,9 @@ const people = [
       1,
       3,
       5,
-      5
+      5,
+      1,
+      3
     ],
     "fact": "他是清代小说家，代表作是《红楼梦》。",
     "url": "https://s.visitbeijing.com.cn/attraction/118056"
@@ -162,7 +184,9 @@ const people = [
       2,
       3,
       3,
-      3
+      3,
+      4,
+      5
     ],
     "fact": "他是中国现代文学的重要作家。",
     "url": "https://u.osu.edu/mclc/online-series/lu-xun/"
@@ -176,7 +200,9 @@ const people = [
       2,
       2,
       5,
-      1
+      1,
+      3,
+      2
     ],
     "fact": "他在绘画、设计和科学等多个领域留下作品。",
     "url": "https://www.nationalgallery.org.uk/artists/leonardo-da-vinci"
@@ -190,6 +216,8 @@ const people = [
       1,
       5,
       2,
+      5,
+      4,
       5
     ],
     "fact": "她研究放射性，并获得物理学和化学诺贝尔奖。",
@@ -204,6 +232,8 @@ const people = [
       3,
       2,
       5,
+      4,
+      3,
       4
     ],
     "fact": "他因理论物理研究和光电效应方面的工作获得诺贝尔奖。",
@@ -218,7 +248,9 @@ const people = [
       1,
       4,
       2,
-      5
+      5,
+      3,
+      3
     ],
     "fact": "他提出以自然选择为核心的演化理论。",
     "url": "https://www.nhm.ac.uk/discover/charles-darwin-most-famous-biologist.html"
@@ -232,7 +264,9 @@ const people = [
       5,
       3,
       5,
-      3
+      3,
+      4,
+      2
     ],
     "fact": "他在英国戏剧界工作，并创作了戏剧和诗歌。",
     "url": "https://www.folger.edu/explore/shakespeares-life/"
@@ -246,7 +280,9 @@ const people = [
       2,
       4,
       3,
-      4
+      4,
+      2,
+      3
     ],
     "fact": "她是英国小说家，创作了《傲慢与偏见》等作品。",
     "url": "https://janeaustensociety.org.uk/jane-austen/biography/"
@@ -260,7 +296,9 @@ const people = [
       4,
       5,
       1,
-      4
+      4,
+      5,
+      5
     ],
     "fact": "她是护士和社会改革者，也使用统计图表展示公共卫生问题。",
     "url": "https://www.kcl.ac.uk/people/florence-nightingale"
@@ -274,7 +312,9 @@ const people = [
       1,
       2,
       5,
-      5
+      5,
+      2,
+      4
     ],
     "fact": "他是荷兰画家，留下大量绘画作品。",
     "url": "https://www.vangoghmuseum.nl/en/art-and-stories/art/vincent-van-gogh"
