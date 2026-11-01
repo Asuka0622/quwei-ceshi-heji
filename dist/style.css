@@ -786,6 +786,51 @@ body:has(.deck){overflow:hidden}
 .echo-ta b{margin-bottom:2px;color:var(--ink)}
 .echo em{display:block;margin-top:12px;font-style:normal;font-size:13px;color:var(--seal)}
 .echo:last-child{padding-bottom:6px}
+/* ---------- 穿越古代：木箱、路引、文牒 ---------- */
+body[data-view^=ancient]{background:#2b2017}
+.trunk,.road{position:relative;display:flex;flex-direction:column;max-width:620px;min-height:100vh;min-height:100svh;margin:auto;background:#2b2017;color:#ecdfc4;--title:'Xingjian Serif',var(--serif)}
+.trunk .stage-back,.road .stage-back{color:#ecdfc4}
+.trunk-head{padding:56px 24px 4px;text-align:center}
+.trunk-head small{font-size:13px;letter-spacing:.3em;opacity:.7}
+.trunk-head h1{margin:6px 0 0;color:#ecdfc4;font:600 30px/1.4 var(--title);letter-spacing:.14em}
+.trunk-slots{display:flex;justify-content:center;gap:12px;padding:14px 0 16px}
+.trunk-slot{display:grid;place-items:center;width:70px;height:70px;border:1px dashed rgba(236,223,196,.4);color:#ecdfc4;font:600 36px var(--title);transition:background .25s,border-color .25s}
+.trunk-slot.full{background:var(--seal);border:1px solid var(--seal);animation:pop .35s var(--ease)}
+.trunk .bag-grid{gap:8px;margin:0;padding:0 18px}
+.trunk .bag-item{min-height:76px;padding:10px 4px;background:#3a2c20;box-shadow:none;border:0;border-radius:0;color:rgba(236,223,196,.8);font-size:13px}
+.trunk .bag-item i{color:#ecdfc4;font:600 28px/1.1 var(--title)}
+.trunk .bag-item.selected{background:#1d150e;color:rgba(236,223,196,.35)}
+.trunk .bag-item.selected i{color:rgba(236,223,196,.35)}
+.trunk-foot{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:auto;padding:18px 18px 22px;font-size:14px;color:rgba(236,223,196,.75)}
+.trunk-foot .primary{width:100%;padding:16px;border-radius:0;font:600 17px var(--title);letter-spacing:.24em}
+.road-map{display:flex;justify-content:space-between;margin:0;padding:62px 34px 0;list-style:none;font:600 14px var(--title);letter-spacing:.1em;color:rgba(236,223,196,.5);position:relative}
+.road-map:before{content:'';position:absolute;left:52px;right:52px;top:69px;border-top:1px dashed rgba(236,223,196,.4)}
+.road-map li{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px}
+.road-map i{width:15px;height:15px;background:#2b2017;border:1px solid rgba(236,223,196,.6);border-radius:50%}
+.road-map .past{color:rgba(236,223,196,.8)}.road-map .past i{background:rgba(236,223,196,.7)}
+.road-map .now{color:#ecdfc4}.road-map .now i{background:var(--seal);border-color:var(--seal);box-shadow:0 0 0 5px rgba(164,65,44,.3)}
+.road-pack{padding:16px 24px 0;text-align:center;font-size:13px;letter-spacing:.1em;color:rgba(236,223,196,.6)}
+.road-q{margin:0;padding:34px 26px 26px;color:#ecdfc4;font:600 25px/1.6 var(--title);letter-spacing:.06em}
+.road-options{display:grid;gap:10px;padding:0 18px 22px;border:0}
+.road .option{min-height:60px;padding:14px 18px;background:#e9dcc0;border:0;border-radius:0;color:#2a2118;font-size:16px;line-height:1.55}
+.road .option.selected{background:var(--seal);color:#fff}
+.deck:has(.permit),.deck:has(.permit) .slide{background:#2b2017}
+.deck:has(.permit) .slide{color:#ecdfc4}
+.deck:has(.permit)>.stage-back{color:#ecdfc4}
+.permit{padding:60px 18px 0}
+.permit-sheet{position:relative;display:flex;flex-direction:row-reverse;justify-content:flex-start;gap:0;min-height:62vh;min-height:62svh;padding:22px 10px;background:#e9dcc0;box-shadow:inset 0 0 0 3px #2a2118,inset 0 0 0 7px #e9dcc0,inset 0 0 0 8px rgba(42,33,24,.6);color:#2a2118}
+.permit-col{flex:none;padding:6px 7px;border-left:1px solid rgba(42,33,24,.28);writing-mode:vertical-rl;font:400 15px/1.6 var(--serif);letter-spacing:.14em}
+.permit-col:last-of-type{border-left:0}
+.permit-title{font:600 27px/1.3 var(--title);letter-spacing:.3em}
+.permit-role{padding:6px 12px;color:var(--seal);font:600 46px/1.15 var(--title);letter-spacing:.14em}
+.permit-stamp{position:absolute;left:18px;bottom:20px;display:grid;place-items:center;width:78px;height:78px;background:rgba(164,65,44,.92);color:#f3e8d2;font:600 20px/1.2 var(--title);text-align:center;transform:rotate(-7deg);animation:stampIn .55s cubic-bezier(.3,1.4,.5,1) .35s both}
+.permit-text{padding:20px 24px 0;text-align:center;font-size:15px;line-height:1.9}
+.permit-text p{margin:0}
+.deck:has(.permit) .share-slide{padding-top:18px!important}
+.deck:has(.permit) .result-actions .secondary{color:rgba(236,223,196,.75)}
+.deck:has(.permit) .disclaimer{color:rgba(236,223,196,.45)}
+.deck:has(.permit) .notice{color:#e8a593}
+.deck:has(.permit) .slide-tabs{display:none}
 @media(prefers-reduced-motion:reduce){
  *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
  [data-reveal],.principles li{opacity:1!important;transform:none!important}
