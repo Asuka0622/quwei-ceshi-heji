@@ -803,9 +803,9 @@ body[data-view^=ancient]{background:#2b2017}
 .trunk .bag-item.selected i{color:rgba(236,223,196,.35)}
 .trunk-foot{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:auto;padding:18px 18px 22px;font-size:14px;color:rgba(236,223,196,.75)}
 .trunk-foot .primary{width:100%;padding:16px;border-radius:0;font:600 17px var(--title);letter-spacing:.24em}
-.road-map{display:flex;justify-content:space-between;margin:0;padding:62px 34px 0;list-style:none;font:600 14px var(--title);letter-spacing:.1em;color:rgba(236,223,196,.5);position:relative}
-.road-map:before{content:'';position:absolute;left:52px;right:52px;top:69px;border-top:1px dashed rgba(236,223,196,.4)}
-.road-map li{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px}
+.road-map{display:flex;justify-content:space-between;margin:0;padding:62px 22px 0;list-style:none;font:600 14px var(--title);letter-spacing:.1em;color:rgba(236,223,196,.5);position:relative}
+.road-map:before{content:'';position:absolute;left:36px;right:36px;top:69px;border-top:1px dashed rgba(236,223,196,.4)}
+.road-map li{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;width:28px;font-size:12px;letter-spacing:0;white-space:nowrap}
 .road-map i{width:15px;height:15px;background:#2b2017;border:1px solid rgba(236,223,196,.6);border-radius:50%}
 .road-map .past{color:rgba(236,223,196,.8)}.road-map .past i{background:rgba(236,223,196,.7)}
 .road-map .now{color:#ecdfc4}.road-map .now i{background:var(--seal);border-color:var(--seal);box-shadow:0 0 0 5px rgba(164,65,44,.3)}

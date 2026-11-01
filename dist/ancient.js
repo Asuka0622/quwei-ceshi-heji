@@ -15,6 +15,10 @@ const ancientScenes=[
  {q:'城门口，守卒拦下你盘问来路。你会？',a:['递上一杯酒，先聊两句','拿出账本，说明是来做生意的','摊开舆图，说清要走哪条路','报上师承，写一段文书给他看'],r:[7,1,5,2]},
  {q:'客栈半夜有人喊肚子疼。你会？',a:['下楼找掌柜，把人手安排开','起身看看，翻一翻药囊','先守住门口，免得有人趁乱','拨几下弦，让大家定定神'],r:[6,3,0,4]},
  {q:'路遇一座断桥，对岸也有人等着过河。你会？',a:['算算摆渡一趟能收几文','找些木料，动手修','绕路走，顺便看看上游','召集两岸的人，商量谁出钱出力'],r:[1,8,5,6]},
+ {q:'渡口的船已经坐满，船夫不肯开船。你会？',a:['替大家重新算船资，再和船夫谈','先看看有没有人晕船不适','补一补船舷，让船更稳当些','让老人孩子先上，自己等下一班'],r:[1,3,8,0]},
+ {q:'集市上有人吵起来，说买到了假药。你会？',a:['把两边的说法都记下来','拉开两人，不让他们动手','拿起药闻一闻，辨一辨真假','请双方到官府说个明白'],r:[2,0,3,6]},
+ {q:'山道上遇到一伙拦路的人。你会？',a:['挡在同伴前面，看对方想干什么','掏出酒来，请他们坐下喝一杯','指一条小路，带大家绕过去','问问要多少，谈个价钱'],r:[0,7,5,1]},
+ {q:'雨夜困在驿站，一屋子人闲得发慌。你会？',a:['排好谁守夜，谁看行李','讲讲这一路听来的故事','修好吱呀作响的门窗','弹一曲给大家解闷'],r:[6,2,8,4]},
  {q:'旅途最后一晚。你会？',a:['开一坛酒，请同行的人都喝一杯','把这一路写下来','再练一遍路上学的曲子','修一修用旧了的工具'],r:[7,2,4,8]}
 ];
 let aPicks=[],aAns=[],aIndex=0;
@@ -22,7 +26,7 @@ function ancientBag(){aPicks=[];show('ancient-bag',`<div class="trunk"><button c
  app.querySelectorAll('[data-item]').forEach(b=>b.onclick=()=>{const i=Number(b.dataset.item),at=aPicks.indexOf(i);if(at>=0)aPicks.splice(at,1);else if(aPicks.length<3)aPicks.push(i);else{app.querySelector('#bag-hint').textContent='行囊满了，先放回一件';return}
   app.querySelectorAll('[data-item]').forEach(x=>{const on=aPicks.includes(Number(x.dataset.item));x.classList.toggle('selected',on);x.setAttribute('aria-pressed',on)});app.querySelectorAll('.trunk-slot').forEach((slot,k)=>{const r=ancientRoles[aPicks[k]];slot.textContent=r?r.item[0]:'';slot.classList.toggle('full',!!r)});app.querySelector('#bag-hint').textContent=aPicks.length<3?`还差 ${3-aPicks.length} 件`:'行囊收好了';app.querySelector('#bag-next').disabled=aPicks.length<3});
  app.querySelector('#bag-next').onclick=()=>{aAns=Array(ancientScenes.length).fill(null);aIndex=0;ancientQuiz()}}
-const ancientStops=['城门','客栈','断桥','末夜'];
+const ancientStops=['城门','客栈','断桥','渡口','市集','山道','驿站','末夜'];
 function ancientQuiz(){const s=ancientScenes[aIndex];show('ancient-quiz',`<div class="road"><button class="stage-back" id="a-back" aria-label="${aIndex?'上一个路口':'重新收拾行囊'}">←</button><ol class="road-map">${ancientStops.map((x,i)=>`<li class="${i<aIndex?'past':i===aIndex?'now':''}"><i></i>${x}</li>`).join('')}</ol><div class="road-pack">行囊：${aPicks.map(i=>ancientRoles[i].item).join(' · ')}</div><h2 class="road-q">${s.q}</h2><div class="options road-options">${s.a.map((x,i)=>`<button class="option${aAns[aIndex]===i?' selected':''}" data-aopt="${i}" style="--i:${i}" aria-pressed="${aAns[aIndex]===i}">${x}</button>`).join('')}</div></div>`);
  app.querySelector('#a-back').onclick=()=>{if(aIndex){aIndex--;ancientQuiz()}else ancientBag()};
  app.querySelectorAll('[data-aopt]').forEach(b=>b.onclick=()=>ancientPick(Number(b.dataset.aopt)))}
