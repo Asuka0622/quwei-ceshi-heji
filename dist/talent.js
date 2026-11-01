@@ -1,13 +1,13 @@
 // 天赋二选一：20 组卡片，每组选更想做的一件事。8 种天赋各出现 5 次；结果反映这次的偏好，不是能力评估。
 const talentTypes=[
- {name:'语言',text:'你喜欢把事情说清楚、说好听，一句话也愿意反复掂量。',person:'苏轼',why:'写诗、作文、作词都留下了名篇'},
- {name:'逻辑',text:'你看到一团乱麻就想理出头绪，弄明白为什么才舒服。',person:'牛顿',why:'用同一套定律解释了天上和地上的运动'},
- {name:'空间',text:'你脑子里常有一张图，东西该摆在哪儿、路怎么走，一看就有数。',person:'林徽因',why:'测绘古建筑，也投身建筑设计'},
- {name:'音律',text:'你对声音和节奏很敏感，一段旋律能在心里留很久。',person:'贝多芬',why:'听力衰退之后仍然坚持作曲'},
- {name:'身体',text:'你更相信亲手试一遍，动起来的时候想得最清楚。',person:'岳飞',why:'少年习武，以善骑射闻名'},
- {name:'人际',text:'你很留意人和人之间的气氛，也愿意花心思把大家连起来。',person:'郑和',why:'率领庞大船队远航，与沿途各国往来'},
- {name:'内省',text:'你常常回头看自己，心里的变化你比别人先知道。',person:'陶渊明',why:'辞官归田，把日常的心境写进诗里'},
- {name:'自然观察',text:'花草、天气和小动物总能吸引你，你能看见别人路过的细节。',person:'达尔文',why:'随贝格尔号环球考察，细致记录各地物种'}
+ {name:'语言',signs:['朋友常找你帮忙改文案','会为一个词琢磨半天','听到好句子忍不住记下来'],try:'给今天写三行日记，只用最准确的词。',text:'你喜欢把事情说清楚、说好听，一句话也愿意反复掂量。',person:'苏轼',why:'写诗、作文、作词都留下了名篇'},
+ {name:'逻辑',signs:['看到不合理的流程就想改','吵架时也想先把事实理清','喜欢解谜和推理'],try:'把最近纠结的决定写成一张利弊表。',text:'你看到一团乱麻就想理出头绪，弄明白为什么才舒服。',person:'牛顿',why:'用同一套定律解释了天上和地上的运动'},
+ {name:'空间',signs:['搬家时布局都交给你','去过一次的路就记得','看图比看文字快'],try:'凭记忆手绘一张你家附近的地图。',text:'你脑子里常有一张图，东西该摆在哪儿、路怎么走，一看就有数。',person:'林徽因',why:'测绘古建筑，也投身建筑设计'},
+ {name:'音律',signs:['记不住歌词，却忘不了旋律','能听出谁跑了调','走路会不自觉踩节拍'],try:'给今天选一首主题曲，仔细听出其中一种乐器。',text:'你对声音和节奏很敏感，一段旋律能在心里留很久。',person:'贝多芬',why:'听力衰退之后仍然坚持作曲'},
+ {name:'身体',signs:['学动作比看说明书快','久坐一会儿就想动','喜欢亲手把东西做出来'],try:'学一个新动作，练到不用想也能做。',text:'你更相信亲手试一遍，动起来的时候想得最清楚。',person:'岳飞',why:'少年习武，以善骑射闻名'},
+ {name:'人际',signs:['一进门就能感觉到气氛','朋友有心事爱来找你','聚会上总在给人牵线'],try:'这周介绍两位可能聊得来的朋友认识。',text:'你很留意人和人之间的气氛，也愿意花心思把大家连起来。',person:'郑和',why:'率领庞大船队远航，与沿途各国往来'},
+ {name:'内省',signs:['常常问自己为什么会这样','需要一段独处才能恢复','能说清自己现在是什么心情'],try:'睡前写一句今天最真实的感受。',text:'你常常回头看自己，心里的变化你比别人先知道。',person:'陶渊明',why:'辞官归田，把日常的心境写进诗里'},
+ {name:'自然观察',signs:['留意得到季节的细小变化','记得住花草和鸟的名字','出门喜欢抬头看云'],try:'下次出门，记下三样平时没注意过的植物或鸟。',text:'花草、天气和小动物总能吸引你，你能看见别人路过的细节。',person:'达尔文',why:'随贝格尔号环球考察，细致记录各地物种'}
 ];
 const talentRounds=[
  [0,'为朋友写一段生日贺词',1,'帮朋友理清一笔算不明白的账'],
@@ -58,7 +58,7 @@ async function drawTalentCard(canvas,{no,s,top}){const W=1080,H=1620,g=canvas.ge
  g.fillStyle='rgba(239,231,210,.6)';g.font=`400 24px ${SERIF}`;g.fillText('星笺 · 你身上藏着什么天赋？',W/2,H-110)}
 function talentResult(){const {s,order}=talentScore(tAns),top=order.slice(0,3).map(i=>talentTypes[i]);atlasRecord('talent',top[0].name,s[order[0]]);
  const no=['I','II','III','IV','V','VI','VII','VIII'][order[0]];
- show('talent-result',deck([['天赋牌',`<article class="tcard"><span class="tcard-no">${no}</span>${talentGlyph(s)}<small>你最想靠近的天赋</small><h1>${top[0].name}</h1><p>${top[0].text}</p></article>`],['星图',`<section class="panel talent-map"><h3>你的天赋星图</h3>${talentStar(s)}</section><section class="panel"><h3>你的前三项</h3>${top.map((t,k)=>{const i=people.findIndex(p=>p.name===t.person);return `<div class="talent-row">${portrait({...people[i],order:i},'avatar-sm')}<div><strong>${k+1}. ${t.name}</strong><p>${k?t.text+' ':''}同样偏爱这件事的人物：${t.person}，${t.why}。</p></div></div>`}).join('')}</section><section class="panel share-slide"><div class="result-actions"><button class="primary" id="tshare">分享结果</button><button class="secondary" id="tagain">再测一次</button><button class="secondary" id="tatlas">查看图鉴</button><button class="secondary" data-home>回到首页</button></div><p class="notice" id="notice" aria-live="polite"></p><p class="disclaimer">这只反映这次你更想做哪件事，不是能力或智力评估。人物只用来帮助联想，他们并未答题。</p></section>`]],'<button class="top-share" id="top-share">分享</button>'));bindDeck();
+ show('talent-result',deck([['天赋牌',`<article class="tcard"><span class="tcard-no">${no}</span>${talentGlyph(s)}<small>你最想靠近的天赋</small><h1>${top[0].name}</h1><p>${top[0].text}</p></article>`],['星图',`<section class="panel talent-map"><h3>你的天赋星图</h3>${talentStar(s)}</section>`],['前三项',`<section class="panel"><h3>你的前三项</h3>${top.map((t,k)=>{const i=people.findIndex(p=>p.name===t.person);return `<div class="talent-row">${portrait({...people[i],order:i},'avatar-sm')}<div><strong>${k+1}. ${t.name}</strong><p>${t.text}</p><ul class="talent-signs">${t.signs.map(x=>`<li>${x}</li>`).join('')}</ul><p class="talent-person">同样偏爱这件事的人物：${t.person}，${t.why}。</p><p class="talent-try"><b>可以试试</b>${t.try}</p></div></div>`}).join('')}</section><section class="panel share-slide"><div class="result-actions"><button class="primary" id="tshare">分享结果</button><button class="secondary" id="tagain">再测一次</button><button class="secondary" id="tatlas">查看图鉴</button><button class="secondary" data-home>回到首页</button></div><p class="notice" id="notice" aria-live="polite"></p><p class="disclaimer">这只反映这次你更想做哪件事，不是能力或智力评估。人物只用来帮助联想，他们并未答题。</p></section>`]],'<button class="top-share" id="top-share">分享</button>'));bindDeck();
  const shareIt=()=>openShareCard({draw:cv=>drawTalentCard(cv,{no,s,top}),wait:'正在翻开你的天赋牌…',alt:'我的天赋牌：测试结果分享图',file:'星笺-我的天赋牌.png',text:`我最想靠近的天赋是「${top[0].name}」，其次是${top[1].name}和${top[2].name}。你呢？`});app.querySelector('#tshare').onclick=shareIt;app.querySelector('#top-share').onclick=shareIt;
  app.querySelector('#tagain').onclick=talentStart;app.querySelector('#tatlas').onclick=()=>atlas('talent')}
 document.addEventListener('keydown',e=>{if(view!=='talent-quiz'||e.ctrlKey||e.metaKey||e.altKey)return;const i='12'.indexOf(e.key);if(i>=0)talentPick(i)});

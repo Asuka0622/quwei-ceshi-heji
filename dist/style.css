@@ -926,6 +926,21 @@ body[data-view^=ancient]:before,body[data-view^=boundary]:before,body[data-view^
 /* ---------- 穿越古代：题目居中，选项靠下，拇指够得着 ---------- */
 .road-q{flex:1;display:flex;align-items:center}
 .road-options{padding-bottom:30px}
+/* ---------- 结果补充内容 ---------- */
+.role-file{margin:18px 24px 0;padding:16px 0 0;border-top:1px solid rgba(236,223,196,.28)}
+.role-file dt{font:600 15px var(--title);letter-spacing:.14em;color:#e0b98e}
+.role-file dd{margin:4px 0 16px;font-size:15px;line-height:1.85;color:#ecdfc4}
+.note-blue{background:#d8e4ef;transform:rotate(-.5deg)}
+.note-pink{background:#f3d9d0;transform:rotate(.5deg)}
+.note-sub{margin-top:20px!important;font-size:20px!important}
+.note-list .note-say{margin:10px 0 0;box-shadow:0 2px 8px rgba(45,58,53,.08)}
+.note-say small{display:block;margin:0 0 2px;font-size:12px;font-weight:400;color:#d96c56}
+.talent-signs{margin:8px 0;padding:0;list-style:none}
+.talent-signs li{position:relative;padding-left:16px;font-size:14px;line-height:1.8;color:#d8d2c2}
+.talent-signs li:before{content:'✦';position:absolute;left:0;top:0;font-size:10px;line-height:2.5;color:#d9bd7c}
+.deck:has(.tcard) .talent-person{font-size:13px;color:rgba(239,231,210,.65)}
+.deck:has(.tcard) .talent-try{margin-top:8px;padding:10px 12px;border:1px solid rgba(217,189,124,.35);border-radius:6px;font-size:14px;line-height:1.7}
+.talent-try b{display:block;font-size:12px;font-weight:400;letter-spacing:.14em;color:#d9bd7c}
 @media(prefers-reduced-motion:reduce){
  *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
  [data-reveal],.principles li{opacity:1!important;transform:none!important}

@@ -1,14 +1,14 @@
 // 穿越古代：先选 3 件随身物品（每件 2 分），再答 4 个路上的情境（每题 1 分），得分最高的身份即结果。身份均为虚构设定。
 const ancientRoles=[
- {item:'剑',role:'游侠',text:'你习惯走到哪儿算哪儿，遇到看不过去的事也不太会绕开。',pass:'此人行踪不定，所到之处常有人道谢，也常有人躲着走。',mate:3},
- {item:'算盘',role:'行商',text:'你走到哪儿都在看什么贵、什么缺，一条路在你眼里也是一门生意。',pass:'此人账目清楚，过关时请核对货物，也请小心被他说动。',mate:5},
- {item:'毛笔',role:'史官',text:'你总想把看到的事记下来，觉得今天的小事过些年也许就是大事。',pass:'此人一路都在写，与之交谈前请想好是否愿意被记上一笔。',mate:0},
- {item:'药囊',role:'游医',text:'你对身边人的不舒服格外敏感，到一个地方先认当地的草药。',pass:'此人沿途行医，各处驿站若有病人，可请其看一看。',mate:0},
- {item:'琵琶',role:'乐师',text:'你靠声音记住一座城，走到哪儿都能和陌生人凑出一支曲子。',pass:'此人携琵琶一面，夜间弹奏请先问过邻房。',mate:7},
- {item:'舆图',role:'行旅人',text:'你对没去过的地方总是好奇，地图上的空白比目的地更吸引你。',pass:'此人只为看路而来，若问他要去哪里，答案每天不同。',mate:1},
- {item:'官印',role:'县令',text:'你一到人多的地方，就会开始想这事该谁负责、怎么安排。',pass:'此人公务在身，沿途若有纠纷，他多半已经在调解了。',mate:2},
- {item:'酒壶',role:'酒肆主人',text:'你身边总能聚起一桌人，南来北往的消息也都从你这里过。',pass:'此人所到之处很快便有酒局，关卡守卒请当值时勿饮。',mate:4},
- {item:'刻刀',role:'匠人',text:'你看见东西坏了就手痒，比起说清楚道理，更愿意动手做出来。',pass:'此人携工具若干，并非凶器，如有桥坏屋漏可就近相求。',mate:6}
+ {item:'剑',role:'游侠',day:'天亮前就上路，午后在茶棚听人诉苦，傍晚已经在替人讨公道。',good:'说走就走，遇事敢出头。',trap:'帮完人才发现，自己的盘缠见底了。',text:'你习惯走到哪儿算哪儿，遇到看不过去的事也不太会绕开。',pass:'此人行踪不定，所到之处常有人道谢，也常有人躲着走。',mate:3},
+ {item:'算盘',role:'行商',day:'早市看货，午后议价，夜里在灯下把账算到最后一文。',good:'看一眼就知道什么东西在哪里值钱。',trap:'有时候连交朋友，都会先算一笔账。',text:'你走到哪儿都在看什么贵、什么缺，一条路在你眼里也是一门生意。',pass:'此人账目清楚，过关时请核对货物，也请小心被他说动。',mate:5},
+ {item:'毛笔',role:'史官',day:'白天四处打听，晚上誊抄；一件小事要问三个人才肯落笔。',good:'记性好、有耐心，不轻信一面之词。',trap:'写得太入迷，常常错过眼前的热闹。',text:'你总想把看到的事记下来，觉得今天的小事过些年也许就是大事。',pass:'此人一路都在写，与之交谈前请想好是否愿意被记上一笔。',mate:0},
+ {item:'药囊',role:'游医',day:'每到一村先认草药，再看病人，诊金常常是一篮鸡蛋。',good:'细心，能从脸色看出别人哪里不舒服。',trap:'总先照顾别人，自己累了也不说。',text:'你对身边人的不舒服格外敏感，到一个地方先认当地的草药。',pass:'此人沿途行医，各处驿站若有病人，可请其看一看。',mate:0},
+ {item:'琵琶',role:'乐师',day:'上午调弦，下午在街头试新曲，晚上被请进酒楼。',good:'耳朵灵，很快就能和陌生人合上拍子。',trap:'听见好曲子就跟着走，常常走错路。',text:'你靠声音记住一座城，走到哪儿都能和陌生人凑出一支曲子。',pass:'此人携琵琶一面，夜间弹奏请先问过邻房。',mate:7},
+ {item:'舆图',role:'行旅人',day:'天一亮就看舆图，专挑没走过的岔路，夜里把新路画上去。',good:'认路、胆大，到哪儿都能安顿下来。',trap:'总想着下一站，很少在一个地方久留。',text:'你对没去过的地方总是好奇，地图上的空白比目的地更吸引你。',pass:'此人只为看路而来，若问他要去哪里，答案每天不同。',mate:1},
+ {item:'官印',role:'县令',day:'上午升堂断案，下午巡视仓廪，傍晚还要调解两家的田界。',good:'能把一团乱的事理出头绪、分好工。',trap:'出门游玩，也忍不住替大家安排。',text:'你一到人多的地方，就会开始想这事该谁负责、怎么安排。',pass:'此人公务在身，沿途若有纠纷，他多半已经在调解了。',mate:2},
+ {item:'酒壶',role:'酒肆主人',day:'清早开门备酒，午后听南来北往的消息，打烊时全城的事都知道了。',good:'记得每位客人的口味，三句话就能让人打开话匣子。',trap:'秘密听得太多，有时也不知道该不该说。',text:'你身边总能聚起一桌人，南来北往的消息也都从你这里过。',pass:'此人所到之处很快便有酒局，关卡守卒请当值时勿饮。',mate:4},
+ {item:'刻刀',role:'匠人',day:'天亮生炉开工，一件东西改了又改，到天黑才肯放下。',good:'手巧，坏了的东西到你手里都有救。',trap:'修得太投入，饭凉了也想不起来。',text:'你看见东西坏了就手痒，比起说清楚道理，更愿意动手做出来。',pass:'此人携工具若干，并非凶器，如有桥坏屋漏可就近相求。',mate:6}
 ];
 // 情境的 r 是每个选项对应的身份序号。
 const ancientScenes=[
@@ -43,7 +43,7 @@ async function drawPermit(canvas,{role,items,pass,mate}){const W=1080,H=1620,g=c
  g.fillStyle='#6c6252';g.font=`400 26px ${SERIF}`;g.textAlign='center';g.textBaseline='middle';g.fillText('星笺 · 穿越古代，你会是什么身份？',W/2,H-110)}
 function ancientResult(){const r=ancientRoles[ancientScore(aPicks,aAns)],mate=ancientRoles[r.mate];atlasRecord('ancient',r.role);
  const items=aPicks.map(i=>ancientRoles[i].item).join('、');
- show('ancient-result',deck([['文牒',`<article class="permit"><div class="permit-sheet"><div class="permit-col permit-title">通关文牒</div><div class="permit-col">持牒人身份</div><div class="permit-col permit-role">${r.role}</div><div class="permit-col">随身携带${items}</div><div class="permit-col">${r.pass}</div><div class="permit-col">宜与${mate.role}同行</div><span class="permit-stamp" aria-hidden="true">准予<br>通行</span></div></article><div class="permit-text"><p>${r.text}</p></div><section class="panel share-slide"><div class="result-actions"><button class="primary" id="ashare">分享我的文牒</button><button class="secondary" id="aagain">重新收拾行囊</button><button class="secondary" id="aatlas">查看图鉴</button><button class="secondary" data-home>回到首页</button></div><p class="notice" id="notice" aria-live="polite"></p><p class="disclaimer">纯属趣味想象，身份和文牒都是虚构的，不是历史考证或性格评估。</p></section>`]],'<button class="top-share" id="top-share">分享</button>'));bindDeck();
+ show('ancient-result',deck([['文牒',`<article class="permit"><div class="permit-sheet"><div class="permit-col permit-title">通关文牒</div><div class="permit-col">持牒人身份</div><div class="permit-col permit-role">${r.role}</div><div class="permit-col">随身携带${items}</div><div class="permit-col">${r.pass}</div><div class="permit-col">宜与${mate.role}同行</div><span class="permit-stamp" aria-hidden="true">准予<br>通行</span></div></article><div class="permit-text"><p>${r.text}</p></div><dl class="role-file"><dt>你的一天</dt><dd>${r.day}</dd><dt>拿手的事</dt><dd>${r.good}</dd><dt>容易吃亏的地方</dt><dd>${r.trap}</dd></dl><section class="panel share-slide"><div class="result-actions"><button class="primary" id="ashare">分享我的文牒</button><button class="secondary" id="aagain">重新收拾行囊</button><button class="secondary" id="aatlas">查看图鉴</button><button class="secondary" data-home>回到首页</button></div><p class="notice" id="notice" aria-live="polite"></p><p class="disclaimer">纯属趣味想象，身份和文牒都是虚构的，不是历史考证或性格评估。</p></section>`]],'<button class="top-share" id="top-share">分享</button>'));bindDeck();
  const shareIt=()=>openShareCard({draw:cv=>drawPermit(cv,{role:r.role,items,pass:r.pass,mate:mate.role}),wait:'正在盖印你的文牒…',alt:'我的通关文牒：测试结果分享图',file:'星笺-我的文牒.png',text:`穿越到古代，我的文牒上写着「${r.role}」，行囊里装着${items}。你会是什么身份？`});app.querySelector('#ashare').onclick=shareIt;app.querySelector('#top-share').onclick=shareIt;
  app.querySelector('#aagain').onclick=ancientBag;app.querySelector('#aatlas').onclick=()=>atlas('ancient')}
 document.addEventListener('keydown',e=>{if(view!=='ancient-quiz'||e.ctrlKey||e.metaKey||e.altKey)return;const i='1234'.indexOf(e.key);if(i>=0)ancientPick(i)});
